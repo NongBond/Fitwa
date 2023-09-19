@@ -1,5 +1,6 @@
 import React from "react";
 import { FiActivity } from "react-icons/fi";
+import "./Header.css"
 
 
 
