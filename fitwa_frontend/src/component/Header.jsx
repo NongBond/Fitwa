@@ -1,6 +1,7 @@
 import React from "react";
 import { FiActivity } from "react-icons/fi";
 import "./Header.css"
+import { Link } from "react-router-dom";
 
 
 
@@ -16,10 +17,10 @@ function Header(){
                     </div>
                     <ul className="menu">
                         <li>
-                            <a href="menu-link">gym near me</a>
+                            <Link to="menu-link">gym near me</Link>
                         </li>
                         <li>
-                            <a href="menu-link">about us</a>
+                            <Link to="about">about us</Link>
                         </li>
                     </ul>
                 </div>

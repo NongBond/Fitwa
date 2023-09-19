@@ -15,6 +15,7 @@
     align-items: center;
     justify-content: center;
     height: 720px;
+    padding-bottom: 0;
 }
 
 .banner-text {
