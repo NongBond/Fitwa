@@ -33,3 +33,9 @@
     padding-left: 2rem;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.search{
+    margin-left: 2rem;
+    border-radius: 2rem;
+    opacity: 0.9;
+}

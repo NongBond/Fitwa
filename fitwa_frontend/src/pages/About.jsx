@@ -1,10 +1,17 @@
 import React from "react";
+import Header_wsearch from "../component/Header_wsearch";
 
 
 function About(){
-    return(
-        <h1>About</h1>
+
+    return (
+      <>
+        <div>
+          <Header_wsearch />
+        </div>
+      </>
     )
-}
+  }
+
 
 export default About

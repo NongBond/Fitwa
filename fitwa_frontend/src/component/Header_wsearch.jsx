@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 
-function Header(){
+function Header_wsearch(){
 
 
     return(
@@ -14,6 +14,7 @@ function Header(){
                 <div className="header-con">
                     <div className="logo">
                         <Link to="/">Fitwa<FiActivity/></Link>
+                        <input className="search"></input>
                     </div>
                     <ul className="menu">
                         <li>
@@ -29,4 +30,4 @@ function Header(){
     )
 }
 
-export default Header
+export default Header_wsearch
