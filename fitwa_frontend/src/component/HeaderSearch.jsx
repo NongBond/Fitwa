@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 
-function Header_wsearch(){
+function HeaderSearch(){
 
 
     return(
@@ -30,4 +30,4 @@ function Header_wsearch(){
     )
 }
 
-export default Header_wsearch
+export default HeaderSearch

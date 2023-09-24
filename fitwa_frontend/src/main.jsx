@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import About from './pages/About'
+import SignIn from './pages/Signin'
+import EditProfile from './pages/EditProfile'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -21,9 +24,14 @@ const router = createBrowserRouter([
     element: <About />
   },
   {
-    path: "",
-    element: <App />
-  }])
+    path: "signin",
+    element: <SignIn />
+  },
+  {
+    path: "edit",
+    element: <EditProfile />
+  },
+])
 
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>

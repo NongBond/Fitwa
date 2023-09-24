@@ -1,4 +1,5 @@
 import React from "react";
+import EditProfile from "../component/EditProfile";
 import HeaderSearch from "../component/HeaderSearch";
 
 
@@ -8,6 +9,7 @@ function About(){
       <>
         <div>
           <HeaderSearch />
+          <EditProfile />
         </div>
       </>
     )

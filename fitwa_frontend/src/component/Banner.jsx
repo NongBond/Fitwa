@@ -1,6 +1,8 @@
 import React from "react";
 import "./Banner.css"
 import { FiActivity } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
 
 let bannerData = {
     title:'FITWA',
@@ -15,7 +17,7 @@ function Banner(){
                         <h1>{bannerData.title}<FiActivity/></h1>
                         <p>{bannerData.desc}</p>
                         <div className="login-con">
-                        <a href="#" className="banner-login">Sign in</a>
+                        <Link to="signin" className="banner-login">Sign in</Link>
                         </div>
                     </div>
                 </div>
