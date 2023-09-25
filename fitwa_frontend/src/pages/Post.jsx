@@ -1,18 +1,20 @@
 import React from "react";
 import HeaderSearch from "../component/HeaderSearch";
+import PostSection from "../component/PostSection";
 
 
 
-function About(){
+function Post(){
 
     return (
       <>
         <div>
-          <HeaderSearch />
+            <HeaderSearch />
+            <PostSection />
         </div>
       </>
     )
   }
 
 
-export default About
+export default Post

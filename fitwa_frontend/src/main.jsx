@@ -5,6 +5,7 @@ import './index.css'
 import About from './pages/About'
 import SignIn from './pages/Signin'
 import EditProfile from './pages/EditProfile'
+import Post from './pages/Post'
 
 import {
   createBrowserRouter,
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
     path: "edit",
     element: <EditProfile />
   },
+  {
+    path: "main",
+    element: <Post />
+  },
+  
 ])
 
   ReactDOM.createRoot(document.getElementById('root')).render(
