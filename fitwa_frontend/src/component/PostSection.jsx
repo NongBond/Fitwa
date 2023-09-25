@@ -7,7 +7,7 @@ import "./PostSection.css"
 function PostSection(){
     const [postTitle, setPostTitle] = useState('');
   const [selectedGym, setSelectedGym] = useState('Gym A');
-  const gymOptions = ['Gym A', 'Gym B'];
+  const gymOptions = ['Diamond Fitness', 'NP gym'];
   const [description, setDescription] = useState('');
 
   const handlePostTitleChange = (event) => {
