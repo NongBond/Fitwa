@@ -7,7 +7,7 @@ const db = require("./models")
 const postRouter = require("./routers/Posts")
 
 app.use(express.json());
-app.use("/posts", postRouter);
+app.use("/main", postRouter);
 app.use(cors());
 
 
