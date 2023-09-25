@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import "./PostSection.css"
-import { Link } from "react-router-dom";
+
 
  
 
 function PostSection(){
     const [postTitle, setPostTitle] = useState('');
-  const [selectedGym, setSelectedGym] = useState('Gym A'); // Default selected gym
+  const [selectedGym, setSelectedGym] = useState('Gym A');
   const gymOptions = ['Gym A', 'Gym B'];
   const [description, setDescription] = useState('');
 
@@ -23,7 +23,7 @@ function PostSection(){
   };
 
   return (
-    <div>
+    <div className="post-section-con">
       <h2>Create a Gym Post</h2>
       <div>
         <label htmlFor="postTitle">Post Title:</label>
