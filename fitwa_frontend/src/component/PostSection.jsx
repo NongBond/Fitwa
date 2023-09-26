@@ -4,54 +4,57 @@ import axios from "axios";
 import "./PostSection.css";
 
 function PostSection() {
-  const [postTitle, setPostTitle] = useState("");
-  const [selectedGym, setSelectedGym] = useState("");
+  const [title, settitle] = useState("");
+  const [gymName, setgymName] = useState("");
   const gymOptions = ["Diamond Fitness", "NP gym"];
-  const [description, setDescription] = useState("");
+  const [postDescription, setPostpostDescription] = useState("");
 
-  const handlePostTitleChange = (event) => {
-    setPostTitle(event.target.value);
+  const handletitleChange = (event) => {
+    settitle(event.target.value);
   };
 
   const handleGymChange = (event) => {
-    setSelectedGym(event.target.value);
+    setgymName(event.target.value);
   };
 
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
+  const handlepostDescriptionChange = (event) => {
+    setPostpostDescription(event.target.value);
   };
 
 // Inside PostSection.js
-  const handlePost = () => {
+  const handlePost = (data) => {
+  //   axios.post("http://localhost:6969/main") 
+  // .then((response) => {
+  //   console.log(response.data)
+  // })
     const post = {
-      postTitle,
-      selectedGym,
-      description,
+      title,
+      gymName,
+      postDescription,
     };
-    setPostTitle("");
-    setSelectedGym("");
-    setDescription("");
+    settitle("");
+    setgymName("");
+    setPostpostDescription("");
   };
 
 
   return (
-    <div className="post-section-con height-limit">
       <div className="post-section-con">
         <h2>Create Gym Post</h2>
-        <div className="post-content">
           <div className="post-title-gymname">
             <div className="post-title">
-              <label htmlFor="postTitle">Post Title:</label>
+              <label htmlFor="title">Post Title:</label>
               <input
                 type="text"
-                id="postTitle"
-                value={postTitle}
-                onChange={handlePostTitleChange}
+                name="title"
+                id="title"
+                value={title}
+                onChange={handletitleChange}
               />
             </div>
             <div className="post-gymname">
               <label htmlFor="gymName">Gym Name:</label>
-              <select id="gymName" value={selectedGym} onChange={handleGymChange}>
+              <select id="gymName" name = "gymName"value={gymName} onChange={handleGymChange}>
                 {gymOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -59,13 +62,13 @@ function PostSection() {
                 ))}
               </select>
             </div>
-          </div>
-          <div className="post-description">
-            <label htmlFor="description">Description:</label>
+          <div className="post-postDescription">
+            <label htmlFor="postDescription">postDescription:</label>
             <textarea
-              id="description"
-              value={description}
-              onChange={handleDescriptionChange}
+              id="postDescription"
+              name="postpostDescription"
+              value={postDescription}
+              onChange={handlepostDescriptionChange}
             />
           </div>
         </div>
@@ -73,7 +76,6 @@ function PostSection() {
           <button onClick={handlePost}>Post</button>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -9,7 +9,7 @@ function FeedRender() {
               description:"Anyone want to go to NP Park at 2PM"}]
   // const [listOfPost, setListOfPost] = useState([]);
   // useEffect(() => {axios.get("http://localhost:6969/main") // get all the post in database
-  // .then((response) => {
+  // .then((response, ) => {
   //   setListOfPost(response.data); //
   // })},[])
 
