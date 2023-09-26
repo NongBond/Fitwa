@@ -22,19 +22,23 @@ function PostSection() {
   };
 
 // Inside PostSection.js
-  const handlePost = () => {
-    const post = {
-      title,
-      gymName,
-      postDescription,
-    };
-    settitle("");
-    setgymName("");
-    setPostpostDescription("");
-  };
+  // const handlePost = () => {
+  //   const post = {
+  //     title,
+  //     gymName,
+  //     postDescription,
+  //   };
+  //   settitle("");
+  //   setgymName("");
+  //   setPostpostDescription("");
+  // };
 
-  const submitData = (data) => {
-    axios.post("http://localhost:6969/main") .then((response) => {
+  const submitData = (user) => {
+    console.log(user.title)
+    axios.post("http://localhost:6969/main/create", {
+      title:user.title, 
+    gymName:user.gymName,
+     postDescription: user.postDescription}).then((response) => {
     console.log("it's work")
   }).catch(err => {console.log(err)})
   }
