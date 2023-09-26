@@ -1,12 +1,40 @@
+body{
+    height: 920px;
+    background: url(https://images.unsplash.com/photo-1603665409265-bdc00027c217?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
 .post{
     margin: 0 auto;
     margin-top: 1rem;
-    border: 1px black solid;
-    border-radius: 0.5rem;
+    border-radius: 20px;
     max-width: 600px;
     display: flex;
     flex-direction: column;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: white;
+    opacity: 0.8;
 }
+
+.title{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    color: white;
+    border-radius: 20px 20px 0 0;
+    background-color: black;
+}
+
+.gym_name{
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.post_description{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 
 

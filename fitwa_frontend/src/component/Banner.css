@@ -52,3 +52,23 @@
     padding: 10px 20px;
     font-size: 16px;
 }
+
+.banner-text-about{
+    
+    width: 600px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.Name{
+    max-width: 200px;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    
+}
+
+img{
+    max-height: 50px;
+    
+}
