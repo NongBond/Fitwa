@@ -1,8 +1,12 @@
 .post{
-    max-width: 600px;
-    border: 1px black solid;
-    border-radius: 0.5rem;
     margin: 0 auto;
     margin-top: 1rem;
+    border: 1px black solid;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+
