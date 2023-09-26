@@ -17,26 +17,26 @@ function FeedRender() {
 
     return (
       <div className="feed-render-com">
-        {/* {post.map((value, key) => { // map through each object(post)
+        {post.map((value, key) => { // map through each object(post)
           return <div className="post">
             <div className="title">{value.postTitle}</div>
             <div className="post_description">{value.selectedGym}</div>
             <div className="gym_name">{value.description}</div>
           </div>
-        })} */}
+        })}
 
-        {listOfPost.map((value, key) => { // map through each object(post)
+        {/* {listOfPost.map((value, key) => { // map through each object(post)
           return <div className="post">
             <div className="title">{key.title}</div>
             <div className="title">{value.title}</div>
             <div className="gym-name">{value.gymName}</div>
-            {/* (value.gymName == 'Diamond Fitness') ? {
+            (value.gymName == 'Diamond Fitness') ? {
               <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t39.30808-6/378957768_821998876594782_1789587538152082356_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=5614bc&_nc_eui2=AeFblBmNx6ZKGA2MAScaEXIxHDd7C23gGEQcN3sLbeAYRHXGF4Uo6hh3-esnjXWKR3rbMTEFl2UtK3Hj4V5EYIME&_nc_ohc=lwCe0gHGckAAX-_5hcU&_nc_ht=scontent.fkkc3-1.fna&oh=00_AfCOisfTTyidOJd5V4DxYDP7htDCjd50g4ZmzoUiskPDKg&oe=65189124"/>
-            } : "" */}
+            } : ""
             <div className="description">{value.postDescription}</div>
             <br></br>
           </div>
-        })}
+        })} */}
       </div>
     );
   }
