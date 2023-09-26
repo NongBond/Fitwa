@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import './SignInBox.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import { RecaptchaVerifier, signInWithPhoneNumber, PhoneAuthProvider } from 'firebase/auth'; // Import PhoneAuthProvider
-import { auth } from '../firebase.config';
+import { signInWithPhoneNumber, PhoneAuthProvider } from 'firebase/auth'; // Import PhoneAuthProvider
+import { RecaptchaVerifier } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
+import { auth } from '../firebase.config'
+
+const provider = new PhoneAuthProvider(auth);
 
 function SignInBox() {
   const [phoneNumber, setPhoneNumber] = useState('');
