@@ -19,43 +19,56 @@ function PostSection() {
     setDescription(event.target.value);
   };
 
+// Inside PostSection.js
   const handlePost = () => {
+    const post = {
+      postTitle,
+      selectedGym,
+      description,
+    };
     setPostTitle("");
     setSelectedGym("");
     setDescription("");
   };
 
+
   return (
     <div className="post-section-con">
-      <h2>Create a Gym Post</h2>
-      <div>
-        <label htmlFor="postTitle">Post Title:</label>
-        <input
-          type="text"
-          id="postTitle"
-          value={postTitle}
-          onChange={handlePostTitleChange}
-        />
+      <h2>Create Gym Post</h2>
+      <div className="post-content">
+        <div className="post-title-gymname">
+          <div className="post-title">
+            <label htmlFor="postTitle">Post Title:</label>
+            <input
+              type="text"
+              id="postTitle"
+              value={postTitle}
+              onChange={handlePostTitleChange}
+            />
+          </div>
+          <div className="post-gymname">
+            <label htmlFor="gymName">Gym Name:</label>
+            <select id="gymName" value={selectedGym} onChange={handleGymChange}>
+              {gymOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+        <div className="post-description">
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={handleDescriptionChange}
+          />
+        </div>
       </div>
-      <div>
-        <label htmlFor="gymName">Gym Name:</label>
-        <select id="gymName" value={selectedGym} onChange={handleGymChange}>
-          {gymOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+      <div className="post-button">
+        <button onClick={handlePost}>Post</button>
       </div>
-      <div>
-        <label htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={handleDescriptionChange}
-        />
-      </div>
-      <button onClick={handlePost}>Post</button>
     </div>
   );
 }

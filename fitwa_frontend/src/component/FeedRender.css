@@ -1,0 +1,7 @@
+.feed-render-con{
+    max-width: 600px;
+    border: 1px black solid;
+    border-radius: 2rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+}

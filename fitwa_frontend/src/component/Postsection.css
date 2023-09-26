@@ -1,0 +1,49 @@
+/* PostSection.css */
+
+.post-section-con {
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+    border-radius: 2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h2 {
+    /* Styles for the title "Create Gym Post" */
+    margin-bottom: 10px;
+  }
+  
+  .post-content {
+    /* Styles for the second line (post title and gym name) */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .post-title-gymname {
+    /* Styles for the container of post title and gym name */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .post-title,
+  .post-gymname {
+    /* Styles for post title and gym name */
+    flex-basis: 48%; /* Adjust the width as needed */
+  }
+  
+  .post-description {
+    /* Styles for the third line (description) */
+    max-width: 80%;
+    margin-bottom: 10px;
+  }
+  
+  .post-button {
+    /* Styles for the fourth line (button) */
+    align-self: flex-end;
+  }
+  
