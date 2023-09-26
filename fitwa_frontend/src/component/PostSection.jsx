@@ -22,11 +22,7 @@ function PostSection() {
   };
 
 // Inside PostSection.js
-  const handlePost = (data) => {
-  //   axios.post("http://localhost:6969/main") 
-  // .then((response) => {
-  //   console.log(response.data)
-  // })
+  const handlePost = () => {
     const post = {
       title,
       gymName,
@@ -36,6 +32,12 @@ function PostSection() {
     setgymName("");
     setPostpostDescription("");
   };
+
+  const submitData = (data) => {
+    axios.post("http://localhost:6969/main") .then((response) => {
+    console.log("it's work")
+  }).catch(err => {console.log(err)})
+  }
 
 
   return (
@@ -73,7 +75,7 @@ function PostSection() {
           </div>
         </div>
         <div className="post-button">
-          <button onClick={handlePost}>Post</button>
+          <button onClick={submitData}>Post</button>
         </div>
       </div>
   );
