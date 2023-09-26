@@ -1,12 +1,61 @@
-.post-section-con{
-    max-width: 600px;
-    border: 1px black solid;
-    border-radius: 0.5rem;
+.post-section-con {
     margin: 0 auto;
     margin-top: 1rem;
+    border: 1px black solid;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  
+h2{
+    margin-left: 2rem;
 }
 
-.h2{
+.post-gymname{
     margin-left: 2rem;
+}
+
+.post-title{
+    margin-left: 2rem;
+}
+
+.post-title-gymname.NAME {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+  
+  
+.post-postDescription {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+  
+.post-postDescription textarea {
+    width: 80%;
+    margin-left: 2rem;
+}
+  
+ .post-button button {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    background-color: black;
+    color: #fff;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Lucida Sans", "Lucida Grande", sans-serif;
+ }
+  
+.post-button button:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px black solid;
 }

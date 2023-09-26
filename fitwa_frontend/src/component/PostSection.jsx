@@ -48,32 +48,34 @@ function PostSection() {
       <div className="post-section-con">
         <h2>Create Gym Post</h2>
           <div className="post-title-gymname">
-            <div className="post-title">
-              <label htmlFor="title">Post Title:</label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                value={title}
-                onChange={(e) => settitle(e.target.value)}
-              />
-            </div>
-            <div className="post-gymname">
-              <label htmlFor="gymName">Gym Name:</label>
-              <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
-                <h2>{gymName}</h2>
-                <option>--</option>
-                <option>Diamond Fitness</option>
-                <option>NP Fitness</option>
-                {/* {gymOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))} */}
-              </select>
+            <div className="NAME">
+              <div className="post-title">
+                <label htmlFor="title">Post Title:</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  value={title}
+                  onChange={(e) => settitle(e.target.value)}
+                />
+              </div>
+              <div className="post-gymname">
+                <label htmlFor="gymName">Gym Name:</label>
+                <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
+                  <h2>{gymName}</h2>
+                  <option>--</option>
+                  <option>Diamond Fitness</option>
+                  <option>NP Fitness</option>
+                  {/* {gymOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))} */}
+                </select>
+              </div>
             </div>
           <div className="post-postDescription">
-            <label htmlFor="postDescription">postDescription:</label>
+            <label htmlFor="postDescription">Post Description:</label>
             <textarea
               id="postDescription"
               name="postpostDescription"
