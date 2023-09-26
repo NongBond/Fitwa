@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PostSection from "../component/PostSection";
 import FeedRender from "../component/FeedRender";
+import HeaderSearch from "../component/HeaderSearch"
+
 
 function Post() {
   const [posts, setPosts] = useState([]);
@@ -11,6 +13,7 @@ function Post() {
 
   return (
     <div className="post-page">
+      <HeaderSearch />
       <PostSection onPost={addPost} />
       <FeedRender posts={posts} />
     </div>
