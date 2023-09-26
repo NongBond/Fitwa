@@ -1,98 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import './SignInBox.css';
-import PhoneInput from 'react-phone-input-2';
-import 'react-phone-input-2/lib/style.css';
-import { signInWithPhoneNumber, PhoneAuthProvider } from 'firebase/auth'; // Import PhoneAuthProvider
-import { RecaptchaVerifier } from 'firebase/auth';
-import toast, { Toaster } from 'react-hot-toast';
-import { auth } from '../firebase.config'
+import { GoogleAuthProvider } from "firebase/auth";
+import { auth } from '../firebase.config';
+import { signInWithPopup } from 'firebase/auth';
 
-const provider = new PhoneAuthProvider(auth);
 
-function SignInBox() {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [otp, setOtp] = useState('');
 
-  // Create a state variable to store the confirmation result
-  const [confirmationResult, setConfirmationResult] = useState(null);
+function SignInBox(){
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      const appVerifier = new RecaptchaVerifier('recaptcha-container', {
-        size: 'invisible',
-        callback: (response) => {
-          // Captcha callback, called when captcha verification is successful
-          // Send OTP to the phone number
-          sendOTP();
-        },
-        'expired-callback': () => {
-          // Captcha expired callback
-          // Handle expired captcha here
-        },
-      });
+    const [user,setUser] = useState('');
+    useEffect( () => {auth.onAuthStateChanged((user) => {setUser(user)})}, []) 
 
-      const formatPh = '+66' + phoneNumber; // Set the country code to '+66' for Thailand
-      const provider = new PhoneAuthProvider(auth);
+    const login = async () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+    .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user);
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });
 
-      // Initiate phone number verification
-      const confirmation = await signInWithPhoneNumber(provider, formatPh, appVerifier);
+  
+}
+return(
 
-      setConfirmationResult(confirmation);
-      
-      toast.success('OTP Sent Successfully!');
-    } catch (error) {
-      console.error(error);
-      toast.error('Failed to send OTP.');
-    }
-  };
-
-  const handleVerifyOTP = async () => {
-    try {
-      toast.success('OTP Verified Successfully!');
-    } catch (error) {
-      console.error(error);
-      toast.error('Failed to verify OTP.');
-    }
-  };
-
-  return (
-    <div className="sign-container">
-      <Toaster toastOptions={{ duration: 2000 }} />
-      <div className="sign-in-box">
-        <h2>Sign In with Phone Number</h2>
-        <form onSubmit={handleSignIn}>
-          <div className="form-group">
-            <label htmlFor="phoneNumber">Phone Number:</label>
-            <PhoneInput
-              country={'th'} // Set the default country to Thailand
-              inputProps={{
-                id: 'phoneNumber',
-                required: true,
-                placeholder: 'e.g., 610526499'
-              }}
-              value={phoneNumber}
-              onChange={setPhoneNumber}
-            />
-          </div>
-          <div id="recaptcha-container"></div>
-          <button type="submit">Send OTP</button>
-        </form>
-        {confirmationResult && (
-          <div>
-            <p>Enter OTP:</p>
-            <input
-              type="text"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              placeholder="Enter OTP"
-            />
-            <button onClick={handleVerifyOTP}>Verify OTP</button>
-          </div>
-        )}
-      </div>
+    <div className="banner-bg">
+    <div className="container">
+        <div className="banner-con">
+            <div className="banner-text">
+                <h1>{bannerData.title}<FiActivity/></h1>
+                <p>{bannerData.desc}</p>
+                <div className="login-con">
+                <button className="banner-login">Sign in</button>
+                </div>
+            </div>
+        </div>
     </div>
-  );
+</div>
+
+);
 }
 
-export default SignInBox;
+export default SignInBox

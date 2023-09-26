@@ -13,9 +13,6 @@ function Header() {
           </div>
           <ul className="menu">
             <li>
-              <Link to="/menu-link">gym near me</Link>
-            </li>
-            <li>
               <Link to="/about">about us</Link>
             </li>
           </ul>
