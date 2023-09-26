@@ -9,17 +9,17 @@ function PostSection() {
   const gymOptions = ["Diamond Fitness", "NP gym"];
   const [postDescription, setPostpostDescription] = useState("");
 
-  const handletitleChange = (event) => {
-    settitle(event.target.value);
-  };
+  // const handletitleChange = (event) => {
+  //   settitle(event.target.value);
+  // };
 
-  const handleGymChange = (event) => {
-    setgymName(event.target.value);
-  };
+  // const handleGymChange = (event) => {
+  //   setgymName(event.target.value);
+  // };
 
-  const handlepostDescriptionChange = (event) => {
-    setPostpostDescription(event.target.value);
-  };
+  // const handlepostDescriptionChange = (event) => {
+  //   setPostpostDescription(event.target.value);
+  // };
 
 // Inside PostSection.js
   // const handlePost = () => {
@@ -37,8 +37,8 @@ function PostSection() {
     console.log(user.title)
     axios.post("http://localhost:6969/main/create", {
       title:user.title, 
-    gymName:user.gymName,
-     postDescription: user.postDescription}).then((response) => {
+      gymName:user.gymName,
+      postDescription: user.postDescription}).then((response) => {
     console.log("it's work")
   }).catch(err => {console.log(err)})
   }
@@ -55,12 +55,12 @@ function PostSection() {
                 name="title"
                 id="title"
                 value={title}
-                onChange={handletitleChange}
+                onChange={(e) => settitle(e.target.value)}
               />
             </div>
             <div className="post-gymname">
               <label htmlFor="gymName">Gym Name:</label>
-              <select id="gymName" name = "gymName"value={gymName} onChange={handleGymChange}>
+              <select id="gymName" name = "gymName"value={gymName} onChange={(e) => setgymName(e.target.value)}>
                 {gymOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -74,7 +74,7 @@ function PostSection() {
               id="postDescription"
               name="postpostDescription"
               value={postDescription}
-              onChange={handlepostDescriptionChange}
+              onChange={(e) => postDescription(e.target.value)}
             />
           </div>
         </div>
