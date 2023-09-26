@@ -1,14 +1,11 @@
-import React, {useState} from "react";
-import "./PostSection.css"
+import React, { useState } from "react";
+import "./PostSection.css";
 
-
- 
-
-function PostSection(){
-    const [postTitle, setPostTitle] = useState('');
-  const [selectedGym, setSelectedGym] = useState('Gym A');
-  const gymOptions = ['Diamond Fitness', 'NP gym'];
-  const [description, setDescription] = useState('');
+function PostSection() {
+  const [postTitle, setPostTitle] = useState("");
+  const [selectedGym, setSelectedGym] = useState("");
+  const gymOptions = ["Diamond Fitness", "NP gym"];
+  const [description, setDescription] = useState("");
 
   const handlePostTitleChange = (event) => {
     setPostTitle(event.target.value);
@@ -20,6 +17,12 @@ function PostSection(){
 
   const handleDescriptionChange = (event) => {
     setDescription(event.target.value);
+  };
+
+  const handlePost = () => {
+    setPostTitle("");
+    setSelectedGym("");
+    setDescription("");
   };
 
   return (
@@ -36,11 +39,7 @@ function PostSection(){
       </div>
       <div>
         <label htmlFor="gymName">Gym Name:</label>
-        <select
-          id="gymName"
-          value={selectedGym}
-          onChange={handleGymChange}
-        >
+        <select id="gymName" value={selectedGym} onChange={handleGymChange}>
           {gymOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -56,9 +55,9 @@ function PostSection(){
           onChange={handleDescriptionChange}
         />
       </div>
-      <button>Post</button>
+      <button onClick={handlePost}>Post</button>
     </div>
   );
 }
 
-export default PostSection
+export default PostSection;

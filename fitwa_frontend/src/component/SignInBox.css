@@ -52,7 +52,7 @@
     font-family: "Lucida Sans", "Lucida Grande", sans-serif;
   }
   
-  button {
+  .sign-in-box button {
 
     background-color: black;
     color: #fff;
@@ -65,7 +65,7 @@
     font-family: "Lucida Sans", "Lucida Grande", sans-serif;
   }
   
-  button:hover {
+  .sign-in-box button:hover {
     background-color: transparent;
     color: black;
     border: 1px black solid;
