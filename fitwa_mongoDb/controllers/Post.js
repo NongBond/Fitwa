@@ -1,6 +1,7 @@
 const postModel = require("../models/Post");
 const createPost = async (req, res) => {
     const {title, postDescription, gymName} = req.body;
+    console.log(req.body)
     try{
 
         //if (!title || !postDescription) return res.status(400).json("All field are required")

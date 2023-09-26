@@ -7,7 +7,7 @@ function PostSection() {
   const [title, settitle] = useState("");
   const [gymName, setgymName] = useState("");
   const gymOptions = ["Diamond Fitness", "NP gym"];
-  const [postDescription, setPostpostDescription] = useState("");
+  const [postDescription, setPostDescription] = useState("");
 
   // const handletitleChange = (event) => {
   //   settitle(event.target.value);
@@ -33,12 +33,12 @@ function PostSection() {
   //   setPostpostDescription("");
   // };
 
-  const submitData = (user) => {
-    console.log(user.title)
+  const submitData = () => {
     axios.post("http://localhost:6969/main/create", {
-      title:user.title, 
-      gymName:user.gymName,
-      postDescription: user.postDescription}).then((response) => {
+      title:title, 
+      gymName:gymName,
+      postDescription: postDescription}).then((response) => {
+        console.log(Option)
     console.log("it's work")
   }).catch(err => {console.log(err)})
   }
@@ -60,7 +60,7 @@ function PostSection() {
             </div>
             <div className="post-gymname">
               <label htmlFor="gymName">Gym Name:</label>
-              <select id="gymName" name = "gymName"value={gymName} onChange={(e) => setgymName(e.target.value)}>
+              <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
                 {gymOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -74,7 +74,7 @@ function PostSection() {
               id="postDescription"
               name="postpostDescription"
               value={postDescription}
-              onChange={(e) => postDescription(e.target.value)}
+              onChange={(e) => setPostDescription(e.target.value)}
             />
           </div>
         </div>

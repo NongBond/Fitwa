@@ -8,7 +8,7 @@ function FeedRender() {
   //               selectedGym:"NP Park",
   //             description:"Anyone want to go to NP Park at 2PM"}]
   const [listOfPost, setListOfPost] = useState([]);
-  useEffect(() => {axios.get("http://localhost:6969/main") // get all the post in database
+  useEffect(() => {axios.get("http://localhost:6969/main/post") // get all the post in database
   .then((response) => {
     setListOfPost(response.data); //
   })},[])
