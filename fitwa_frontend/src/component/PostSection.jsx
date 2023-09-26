@@ -61,11 +61,15 @@ function PostSection() {
             <div className="post-gymname">
               <label htmlFor="gymName">Gym Name:</label>
               <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
-                {gymOptions.map((option) => (
+                <h2>{gymName}</h2>
+                <option>--</option>
+                <option>Diamond Fitness</option>
+                <option>NP Fitness</option>
+                {/* {gymOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>
-                ))}
+                ))} */}
               </select>
             </div>
           <div className="post-postDescription">
