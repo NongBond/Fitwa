@@ -2,6 +2,9 @@ import React from "react";
 import "./FeedRender.css";
 
 function FeedRender({ posts }) {
+  const post = [{postTitle:"Find friend",
+                selectedGym:"NP Park",
+              description:"Anyone want to go to NP Park at 2PM"}]
     return (
       <div className="feed-render-con">
         <h2>Feed</h2>
