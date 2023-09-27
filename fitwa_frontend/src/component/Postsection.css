@@ -22,7 +22,17 @@ h2{
 .post-title{
     margin-left: 2rem;
 }
-
+.gymName-header{
+    margin-top: 0;
+    margin-left: 0;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+    border: 2px solid red;
+    background-color: red;
+    width: 180px;
+}
 .post-title-gymname.NAME {
     display: flex;
     flex-direction: row;
