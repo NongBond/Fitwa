@@ -4,7 +4,7 @@ const createPost = async (req, res) => {
     console.log(req.body)
     try{
 
-        //if (!title || !postDescription) return res.status(400).json("All field are required")
+        if (!title || !postDescription) return res.status(400).json("All field are required")
 
         let post = new postModel({title, postDescription, gymName});
         post.save();
