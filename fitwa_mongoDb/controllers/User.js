@@ -16,6 +16,8 @@ const registerUser = async (req, res) => {
         if(user) return res.status(400).json("The given email already exists");
     
         if(!name || !email || !password) return res.status(400).json("All field are required");
+
+        if (!validator.isEmail(password)) return res.status(400).json("Please Enter a valid password")
     
         user = new userModel({name, email, password});
     
