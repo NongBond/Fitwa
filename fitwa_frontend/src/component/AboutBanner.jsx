@@ -1,6 +1,5 @@
 
 import { FiActivity,} from "react-icons/fi";
-import { SocialIcon } from 'react-social-icons'
 import React, { useState , useEffect } from 'react';
 import "./Banner.css"
 
@@ -26,7 +25,6 @@ return(
                         <p>{bannerData.desc1}</p>
                         <p>{bannerData.desc2}</p>
                         <p>{bannerData.desc3}</p>
-
                 </div>
             </div>
         </div>
