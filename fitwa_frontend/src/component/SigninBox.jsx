@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 
-function LoginBox() {
+function SigninBox() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -10,7 +10,7 @@ function LoginBox() {
         e.preventDafault();
 
         try{
-            await axios.post("http://localhost:6969/login",{
+            await axios.post("http://localhost:6969/signin",{
                 email,password
             })
         }
@@ -37,4 +37,4 @@ function LoginBox() {
     )
 }
 
-export default LoginBox
+export default SigninBox
