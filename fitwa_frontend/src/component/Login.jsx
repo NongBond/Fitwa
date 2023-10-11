@@ -1,26 +1,31 @@
-import React, {useState} from "react";
-import {Redirect} from "react-router-dom";
+import React, {useContext} from "react";
+import { Redirect } from "react-router-dom";
+import { AuthContext } from "./Auth";
 import firebaseConfig from "../firebase.config";
 
-function SignUp(){
-    const [currentUser, setCurrentUser] = useState(null);
+function Login(){
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const {email, password} = e.target.element;
+
         try{
-            firebaseConfig.auth().createUserWithEmailandPassword(email.value, password.value);
-            setCurrentUser(true);
+            firebaseConfig.auth().signInWithEmailandPassword(email.value, password.value);
         }
         catch(error){
             alert(error);
         }
     }
-    if (currentUser){
-        return <Redirect  to='/main'/>
+
+    const {currentUser} = useContext(AuthContext)
+    if(currentUser){
+        return <Redirect to="/main" />;
     }
     return(
+    
         <div>
-            <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
@@ -36,4 +41,4 @@ function SignUp(){
     )
 }
 
-export default SignUp
+export default Login
