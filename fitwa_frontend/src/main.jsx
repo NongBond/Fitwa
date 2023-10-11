@@ -1,18 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import SignUp from './component/SignUp'
+import Login from './component/Login'
 import './index.css'
-import About from './pages/About'
-import EditProfile from './pages/EditProfile'
-import Post from './pages/Post'
-
 import {
   createBrowserRouter,
   RouterProvider,
   Route,
   Link,
 } from "react-router-dom";
-import SignIn from './pages/SignIn'
+
 
 
 const router = createBrowserRouter([
@@ -21,26 +19,13 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "main/about",
-    element: <About />
+    path: "/SignUp",
+    element: <SignUp />
   },
   {
-    path: "edit",
-    element: <EditProfile />
-  },
-  {
-    path: "main",
-    element: <Post />
-  },
-  {
-    path: "/signin",
-    element: <SignIn />
-  },
-  {
-    path: "/signin",
-    element: <SignIn />
-  },
-  
+    path: "/Login",
+    element: <Login />
+  }, 
 ])
 
   ReactDOM.createRoot(document.getElementById('root')).render(

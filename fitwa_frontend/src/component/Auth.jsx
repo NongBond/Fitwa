@@ -1,26 +1,33 @@
-import React, {useState,useEffect} from "react";
-import firebaseConfig from "../firebase.config";
+import React, { useState, useEffect } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export const AuthContext = React.createContext();
 
-export const AuthProvider = ({children}) => {
-    const [loading,setLoading] = useState(true);
-    const [currentUser,setCurrentUser] = useState(null);
+export const AuthProvider = ({ children }) => {
+  const auth = getAuth();
+  const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
 
-    useEffect( () => {
-        firebaseConfig.auth().onAuthStateChanged((user) => {
-            setCurrentUser(user);
-            setLoading(false);
-        })
-    }, [])
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      try {
+        setCurrentUser(user);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error updating authentication state:", error);
+      }
+    });
 
-    if (loading){
-        return <p>loading...</p>
-    }
+    return () => unsubscribe();
+  }, [auth]);
 
-    return (
-        <AuthContext.Provider value={{currentUser}}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <AuthContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

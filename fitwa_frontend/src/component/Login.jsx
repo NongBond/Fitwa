@@ -1,44 +1,57 @@
-import React, {useContext} from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./Auth";
-import firebaseConfig from "../firebase.config";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-function Login(){
+function Login() {
+  const auth = getAuth();
+  const navigate = useNavigate(); // hook for navigation
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        const {email, password} = e.target.element;
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        e.target.email.value,
+        e.target.password.value
+      );
 
-        try{
-            firebaseConfig.auth().signInWithEmailandPassword(email.value, password.value);
-        }
-        catch(error){
-            alert(error);
-        }
+      // Signed in successfully
+      const user = userCredential.user;
+      console.log("User signed in:", user);
+
+      // Redirect to / after successful login
+      navigate("/");
+
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error("Login error:", errorCode, errorMessage);
     }
+  };
 
-    const {currentUser} = useContext(AuthContext)
-    if(currentUser){
-        return <Redirect to="/main" />;
-    }
-    return(
-    
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
         <div>
-         <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-3">
-                <label for="exampleInputPassword1" className="form-label">Password</label>
-                <input type="password" className="form-control" id="exampleInputPassword1"/>
-            </div>
-            <button type="submit" className="bth btn-primary">Submit</button>
-            </form>
+          <label htmlFor="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            id="exampleInputEmail1"
+            name="email"
+            aria-describedby="emailHelp"
+          />
+          <small id="emailHelp">We'll never share your email with anyone else.</small>
         </div>
-    )
+        <div>
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input type="password" id="exampleInputPassword1" name="password" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
 }
 
-export default Login
+export default Login;
