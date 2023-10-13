@@ -10,6 +10,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
+import UserProfile from './component/UserProfile'
 
 
 
@@ -25,7 +26,12 @@ const router = createBrowserRouter([
   {
     path: "/Login",
     element: <Login />
-  }, 
+  },
+  {
+    path: "/EditProfile",
+    element: <UserProfile />
+  },
+
 ])
 
   ReactDOM.createRoot(document.getElementById('root')).render(
