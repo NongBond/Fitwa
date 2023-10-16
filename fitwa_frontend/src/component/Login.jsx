@@ -46,7 +46,10 @@ function Login() {
         </div>
         <div>
           <label htmlFor="exampleInputPassword1">Password</label>
-          <input type="password" id="exampleInputPassword1" name="password" />
+          <input 
+            type="password" 
+            id="exampleInputPassword1" 
+            name="password" />
         </div>
         <button type="submit">Submit</button>
       </form>

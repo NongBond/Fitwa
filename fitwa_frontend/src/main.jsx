@@ -11,6 +11,7 @@ import {
   Link,
 } from "react-router-dom";
 import UserProfile from './component/UserProfile'
+import EditProfile from './component/EditProfile'
 
 
 
@@ -28,8 +29,12 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/EditProfile",
+    path: "/UserProfile",
     element: <UserProfile />
+  },
+  {
+    path: "/EditProfile",
+    element: <EditProfile />
   },
 
 ])

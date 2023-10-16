@@ -7,14 +7,15 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import "./SignUp.css";
 
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
   const auth = getAuth();
   const db = getFirestore();
   const navigate = useNavigate();
-  const [age, setAge] = useState('');
-  const [sex, setSex] = useState('');
+  const [age, setAge] = useState("");
+  const [sex, setSex] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,40 +54,61 @@ function SignUp() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input type="email" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" />
-          <small id="emailHelp">We'll never share your email with anyone else.</small>
-         </div>
-        <div>
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input type="password" id="exampleInputPassword1" name="password" />
-        </div>
-        <div>
-          <label htmlFor="exampleInputName">Name</label>
-          <input type="text" id="exampleInputName" name="Name" />
-        </div>
-        <div>
-          <label htmlFor="exampleInputSurname">Surname</label>
-          <input type="text" id="exampleInputSurname" name="Surname" />
-        </div>
-        <div>
-          <label htmlFor="exampleInputAge">Age</label>
-          <input type="number" id="exampleInputAge" name="age" value={age} onChange={(e) => setAge(e.target.value)} />
-        </div>
-        <div>
-          <label htmlFor="sexSelect">Physical Gender</label>
-          <select id="sexSelect" name="sex" value={sex} onChange={(e) => setSex(e.target.value)}>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <div className="con">
+      <div className="input-right">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              id="exampleInputEmail1"
+              name="email"
+              aria-describedby="emailHelp"
+            />
+            <small id="emailHelp">
+              We'll never share your email with anyone else.
+            </small>
+          </div>
+          <div>
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input type="password" id="exampleInputPassword1" name="password" />
+          </div>
+          <div>
+            <label htmlFor="exampleInputName">Name</label>
+            <input type="text" id="exampleInputName" name="Name" />
+          </div>
+          <div>
+            <label htmlFor="exampleInputSurname">Surname</label>
+            <input type="text" id="exampleInputSurname" name="Surname" />
+          </div>
+          <div>
+            <label htmlFor="exampleInputAge">Age</label>
+            <input
+              type="number"
+              id="exampleInputAge"
+              name="age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="sexSelect">Physical Gender</label>
+            <select
+              id="sexSelect"
+              name="sex"
+              value={sex}
+              onChange={(e) => setSex(e.target.value)}
+            >
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+  </div>
   );
 }
 
