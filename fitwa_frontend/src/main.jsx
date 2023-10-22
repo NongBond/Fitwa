@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import SignUp from './component/SignUp'
 import Login from './component/Login'
+import Feed from './pages/Feed'
 import './index.css'
 import {
   createBrowserRouter,
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     path: "/EditProfile",
     element: <EditProfile />
   },
+  {
+    path: "/Main",
+    element: <Feed/>
+  }
 
 ])
 

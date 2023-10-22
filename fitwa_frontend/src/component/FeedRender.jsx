@@ -16,7 +16,7 @@ function FeedRender() {
   useEffect(() => {axios.get("http://localhost:6969/main/post") // get all the post in database
   .then((response) => {
     setListOfPost(response.data); //
-  })},[])
+  })},[listOfPost])
 
   // (value.gymName == 'Diamond Fitness') ? {
   //   <img src="https://scontent.fkkc3-1.fna.fbcdn.net/v/t39.30808-6/378957768_821998876594782_1789587538152082356_n.jpg?stp=cp6_dst-jpg&_nc_cat=105&ccb=1-7&_nc_sid=5614bc&_nc_eui2=AeFblBmNx6ZKGA2MAScaEXIxHDd7C23gGEQcN3sLbeAYRHXGF4Uo6hh3-esnjXWKR3rbMTEFl2UtK3Hj4V5EYIME&_nc_ohc=lwCe0gHGckAAX-_5hcU&_nc_ht=scontent.fkkc3-1.fna&oh=00_AfCOisfTTyidOJd5V4DxYDP7htDCjd50g4ZmzoUiskPDKg&oe=65189124"/>
@@ -48,7 +48,7 @@ function FeedRender() {
             </div>
 
             <div className="description">
-              <p>{formatDate(value.createdAt)}</p>
+              <p>Post at {formatDate(value.createdAt)}</p>
               <p>{value.postDescription}</p>
               </div>
 

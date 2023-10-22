@@ -8,6 +8,9 @@ import {
 } from "firebase/auth";
 import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import "./SignUp.css";
+import axois from "axios"
+import axios from "axios";
+
 
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -43,6 +46,8 @@ function SignUp() {
       });
 
       setCurrentUser(true);
+
+      axios.get("http://localhost:6969/user/users").then()
       navigate("/Login");
     } catch (error) {
       alert(error.message);
