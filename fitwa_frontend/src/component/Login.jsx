@@ -22,7 +22,7 @@ function Login() {
       console.log("User signed in:", user);
 
       // Redirect to / after successful login
-      navigate("/EditProfile");
+      navigate("/Main");
 
     } catch (error) {
       const errorCode = error.code;
