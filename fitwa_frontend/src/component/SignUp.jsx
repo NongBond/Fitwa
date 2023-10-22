@@ -59,8 +59,8 @@ function SignUp() {
   }
 
   return (
-    <div className="con">
-      <div className="input-right">
+      <div className="con">
+      <div className="signin-form">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -113,7 +113,7 @@ function SignUp() {
           <button type="submit">Submit</button>
         </form>
       </div>
-  </div>
+    </div>
   );
 }
 

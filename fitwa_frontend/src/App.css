@@ -1,0 +1,87 @@
+/* styles.css */
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    min-height: 90vh;
+    font-family: Helvetica;
+}
+
+button{
+    text-decoration: none;
+    margin-right: 20px;
+    border-radius: 0.5rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px #ffffff solid;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    color: #000000;
+    background-color: white;
+    border: 1px #000000 solid;
+}
+
+.h1fitwa {
+    color: #ffffff;
+    text-align: left;
+    font-size: 6rem;
+    margin-bottom: 0; /* Adjust as needed */
+    margin-left: 25rem;
+}
+
+.pfitwa {
+    margin-left: 25rem;
+    margin-top: 0;
+    color: #ffffff;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.con-app {
+    max-width: 800px;
+    text-align: left;
+    padding: 20px;
+}
+
+.button-align {
+    margin-left: 25rem;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.button-align a {
+    text-decoration: none;
+    margin-right: 20px;
+    border-radius: 0.5rem;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px #ffffff solid;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button-align a:last-child {
+    margin-right: 0;
+}
+
+.button-align a:hover {
+    color: #000000;
+    background-color: white;
+    border: 1px #000000 solid;
+}

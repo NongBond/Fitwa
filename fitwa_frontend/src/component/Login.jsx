@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./Auth";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import "./Login.css";
 
 function Login() {
   const auth = getAuth();
@@ -32,27 +33,30 @@ function Login() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input
-            type="email"
-            id="exampleInputEmail1"
-            name="email"
-            aria-describedby="emailHelp"
-          />
-          <small id="emailHelp">We'll never share your email with anyone else.</small>
-        </div>
-        <div>
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input 
-            type="password" 
-            id="exampleInputPassword1" 
-            name="password" />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+    <div className="con">
+      <div className="login-form">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit} className="form-grid">
+          <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              id="exampleInputEmail1"
+              name="email"
+              aria-describedby="emailHelp"
+            />
+            <small id="emailHelp">We'll never share your email with anyone else.</small>
+          </div>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
+            <input 
+              type="password" 
+              id="exampleInputPassword1" 
+              name="password" />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
