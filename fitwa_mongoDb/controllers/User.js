@@ -1,79 +1,99 @@
 const userModel = require("../models/User");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const validator = require("validator");
-const createToken = (_id) => {
-    const jwtKey = process.env.JWT_SECRET_KEY;
-    return jwt.sign({_id}, jwtKey, {expiresIn: "3d"});
-};
+const {ObjectId} = require("mongodb")
+const admin = require("firebase-admin");
+const serviceAccount = require("../../firebase/fitwa-197c5-firebase-adminsdk-p74f5-ed54d829ee.json");
 
-const registerUser = async (req, res) => {
-    const {name, email, password} = req.body;
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+});
+
+const firestore = admin.firestore();
+
+
+async function transferData(){
+    console.log("transfer")
+    const collectionRef = firestore.collection("users");
     try{
-    
-        let user = await userModel.findOne({email});
-    
-        if(user) return res.status(400).json("The given email already exists");
-    
-        if(!name || !email || !password) return res.status(400).json("All field are required");
+        const querySnapshot = await collectionRef.get();
 
-        if (!validator.isEmail(password)) return res.status(400).json("Please Enter a valid password")
+
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          console.log(data)
+          //data.then()
+          const firestoreId = doc.id; // Get the Firestore document ID
+        //   const mongoId = new ObjectId(firestoreId);
+        //   console.log(mongoId)
     
-        user = new userModel({name, email, password});
-    
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(user.password, salt);
-    
-        await user.save();
-    
-        const token = createToken(user._id)
-    
-        res.status(200).json({message: "You have register to Fitwa(stupid frontend dev)", _id: user.id, name, email, token});
+        userModel.find({ userId: firestoreId })
+        .exec()
+        .then(documents => {
+          if (documents.length > 0) {
+            console.log(`Found documents with the same id`);
+          } else {
+            const newData = new userModel({
+              name: data.Name,
+              surname: data.Surname,
+              age: data.age,
+              email: data.email,
+              sex: data.sex,
+              userId: firestoreId, // Set the Firestore document ID
+              // Add other fields as needed
+            });
+      
+            newData.save()
+              .then(() => {
+                console.log('New data saved.');
+              })
+              .catch(err => {
+                console.error('Error saving new data:', err);
+              });
+          }
+        })
+        .catch(err => {
+          console.error('Error finding documents:', err);
+        });})
+
     }catch(err){
-        console.log(err);
-        res.status(500).json(err);
+        console.error('Error getting documents from Firestore:', err);
     }
 }
 
-const loginUser = async (req, res) => {
-    const {email, password} = req.body;
 
-    try{
-        let user = await userModel.findOne({email});
-        
-        if (!user) return res.status(400).json("This email has not register!!");
+// async function transferData(){
+//     console.log("transfer")
+//     const collectionRef = firestore.collection("users");
+//     try{
+//         const querySnapshot = await collectionRef.get();
 
-        const isValidPassword = await bcrypt.compare(password, user.password);
 
-        if (!isValidPassword) return res.status(400).json("Incorrect password");
+//         querySnapshot.forEach((doc) => {
+//           const data = doc.data();
+//           console.log(data)
+//           //data.then()
+//           const firestoreId = doc.id; // Get the Firestore document ID
+//         //   const mongoId = new ObjectId(firestoreId);
+//         //   console.log(mongoId)
     
-        const token = createToken(user._id)
-        res.status(200).json({message: "Welcome to Fitwa(very stupid frontend dev)", _id: user.id, name: user.name, email, token});
-    }catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    }
-}
+//           // Create a new document with the Firestore ID and save it to MongoDB
+//           const newData = new userModel({
+//             name: data.Name,
+//             surname: data.Surname,
+//             age: data.age,
+//             email: data.email,
+//             sex: data.sex,
+//             userId: firestoreId, // Set the Firestore document ID
+//             // Add other fields as needed
+//           });
+    
+//           newData.save();
+//         });
 
-const findUser = async (req, res) => {
-    const userId = req.params.userId;
-    try {
-        const user = await userModel.findById(userId);
-        res.status(200).json(user)
-    }catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    }
-};
+//     }catch(err){
+//         console.error('Error getting documents from Firestore:', err);
+//     }
+// }
 
-const findAllUser = async (req, res) => {
-    try{
-        const users = await userModel.find();
-        res.status(200).json(users);
-    }catch(err){
-        console.log(err);
-        res.status(500).json(err);
-    }
-}
 
-module.exports = { registerUser, loginUser, findUser, findAllUser };
+module.exports = {transferData};

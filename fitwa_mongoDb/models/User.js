@@ -3,11 +3,20 @@ const userSchema = new mongoose.Schema({
     name:{
         type: String, required: true 
     },
-    email:{
+    surname:{
         type: String, required: true
     },
-    password: {
+    age: {
         type: String, required: true
+    },
+    email:{
+        type: String, require: true
+    },
+    sex:{
+        type: String, require: true
+    },
+    userId:{
+        type: String, require: true
     }
 },{
     timestamps: true
