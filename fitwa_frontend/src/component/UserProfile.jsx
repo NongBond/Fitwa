@@ -1,8 +1,9 @@
 
 import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged , signOut} from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import './UserProfile.css'
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);
@@ -31,14 +32,25 @@ function UserProfile() {
     return <div>Loading...</div>;
   }
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/Login");
+    } catch (error) {
+      console.error("Error signing out", error);
+    }
+  };
+
   return (
-    <div>
-      <h2>User Profile</h2>
+    <div className="Usercon">
+      <h2>{userData.Name} {userData.Surname}</h2>
       <p>Email: {userData.email}</p>
       <p>Name: {userData.Name}</p>
       <p>Surname: {userData.Surname}</p>
       <p>Age: {userData.age}</p>
       <p>Sex: {userData.sex}</p>
+      <button onClick={handleLogout}>Logout</button>
+      <button onClick={() => navigate("/EditProfile")}>Edit Profile</button>
     </div>
   );
 }

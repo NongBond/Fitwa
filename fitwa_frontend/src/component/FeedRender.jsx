@@ -32,7 +32,7 @@ function FeedRender() {
         {post.map((value, key) => { // map through each object(post)
           return <div className="post">
             <div className="user"> Aiza007</div>
-            <div className="title">{value.postTitle}</div>
+            <div className="feedtitle">{value.postTitle}</div>
             <div className="gym_name">{value.selectedGym}</div>
             <img className="gym_img"src='https://scontent.fkkc3-1.fna.fbcdn.net/v/t39.30808-6/302187077_497436025724706_8197387772549042837_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IU31KOEfV5cAX_USJfN&_nc_ht=scontent.fkkc3-1.fna&oh=00_AfAcaYcaVmUkQIOdMJ2OTOud4-GBUCxgng2jGuWLCFuklA&oe=653BC8D5'/>
             <div className="post_description">{value.description}</div>

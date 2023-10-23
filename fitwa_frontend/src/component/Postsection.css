@@ -4,7 +4,8 @@
    max-width: 600px;
    padding: 1rem;
    border-radius: 1rem;
-   margin: 2rem auto;
+   margin: 4rem auto 2rem;
+   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .post-title-gymnam{
