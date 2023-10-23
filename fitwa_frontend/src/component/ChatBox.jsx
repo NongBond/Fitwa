@@ -18,13 +18,13 @@ function ChatBox() {
 
     if (!recipientUser) 
     return (
-        <p style={{textAlign:"center", width:"100%", color:"white"}}>No conversation selected</p>
+        <p style={{textAlign:"center", width:"100%", color:"white", marginTop:"4rem"}}>No conversation selected</p>
         );
 
-    if (isMessagesLoading) 
-    return (
-        <p style={{textAlign:"center", width:"100%", color:"white"}}>Loading chat</p>
-        );
+    // if (isMessagesLoading) 
+    // return (
+    //     <p style={{textAlign:"center", width:"100%", color:"white"}}>Loading chat</p>
+    //     );
 
 
     return  <div className='chatbox'>

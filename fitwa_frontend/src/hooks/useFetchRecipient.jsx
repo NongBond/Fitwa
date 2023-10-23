@@ -23,7 +23,7 @@ function useFetchRecipient(chat, user) {
         }
 
         getUser();
-    }, []);
+    }, [recipientId]);
 
   return {recipientUser}
 }

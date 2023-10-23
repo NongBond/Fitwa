@@ -5,7 +5,7 @@ export const ChatContext = createContext();
 
 export const ChatContextProvider = ({children, user}) => {
     const [userChats, setUserChats] = useState([]);
-    const [isUserChatsLoading, setIsUserChatsLoading] = useState(false);
+    const [isUserChatsLoading, setIsUserChatsLoading] = useState(true);
     const [userChatsError, setUserChatsError] = useState(null);
     const [potentialChat, setPotentialChat] = useState([]);
     const [currentChat, setCurrentChat] = useState(null);
@@ -49,7 +49,6 @@ export const ChatContextProvider = ({children, user}) => {
                 if (response.error){
                    return setUserChatsError(response);
                 }
-
                 setUserChats(response);
             }
         }
@@ -58,14 +57,13 @@ export const ChatContextProvider = ({children, user}) => {
 
     useEffect(() => {
       const getMessages = async() =>{
-              setIsMessagesLoading(true);
               setMessagesError(null);
 
               const response = await axios.get(`http://localhost:6969/messages/${currentChat?._id}`)
-              setIsMessagesLoading(false)
               if (response.error){
                  return setMessagesError(response);
               }
+              setIsMessagesLoading(false)
               setMessages(response)
       };
       getMessages();
@@ -89,7 +87,7 @@ export const ChatContextProvider = ({children, user}) => {
         setSendTextMessageError(response.error);
       } else {
         setMessages((previousMessages) => {
-          return [...previousMessages, response.data];
+          return [previousMessages, response.data];
         });
   
         setNewMessage(response.data);
@@ -100,9 +98,6 @@ export const ChatContextProvider = ({children, user}) => {
       setSendTextMessageError(error);
     }
   }, [messages]);
-  
-
-      
 
     const updateCurrentChat = useCallback((chat) => {
       setCurrentChat(chat);

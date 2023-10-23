@@ -19,7 +19,7 @@ function Chat() {
         <div>{userChats?.length < 1 ? null :
             <div className='chat-container'>
                 
-            {isUserChatsLoading && <p>Loading Chat</p>}
+            {/* {isUserChatsLoading && <p>Loading Chat</p>} */}
             {
                 userChats?.data?.map((chat, index) => {
                     return(

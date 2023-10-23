@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import useFetchRecipient from "../hooks/useFetchRecipient"
 import "./Chat.css"
 import { ChatContext } from '../context/ChatContext';
+
+
 function UserChat({chat, user}) {
     const {recipientUser} = useFetchRecipient(chat, user);
     const {updateCurrentChat} = useContext(ChatContext)
@@ -11,7 +13,7 @@ function UserChat({chat, user}) {
 
     <div className='user-chat-container'>
         <div className='user-name'>{recipientUser?.name} {recipientUser?.surname}</div>
-        <div className='user-text'>Message</div>
+        <div className='user-text'>{recipientUser?.email}</div>
     </div>
     </button>
     </div>

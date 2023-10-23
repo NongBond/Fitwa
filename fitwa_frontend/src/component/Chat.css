@@ -51,14 +51,15 @@
     border-top-left-radius: 1rem;
 }
 .message-box{
-    margin: 5px;
+    margin-top: 2rem;
+    margin-left: 0.5rem;
     padding: 15px;
     background-color: transparent;
     border-radius: 20px;
     max-height: 500px;
     overflow: auto;
     font-family: Tahoma, sans-serif ;
-
+    margin-right: 1rem;
     
 }
 .message{
@@ -88,11 +89,13 @@
 .chat-footer{
     display: flex;
     margin-left: 20px;
+    margin-top: 1rem;
 }
 .send-button{
     min-width: 100px;
     width: 10%;
     padding: auto;
+    margin-right: 30px;
 }
 
 .all-user-chat-container{
@@ -106,6 +109,7 @@
     background-color: black;
     color: white;}
 .all-user-chat-container button{
+    text-align: left;
     border-radius: 0px;
     background-color: white;
     color: black;
@@ -118,6 +122,7 @@
     color: white;
 }
 .left-right-container{
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: 25% 75%;
     grid-column-gap: 1rem;
@@ -127,6 +132,9 @@
     flex-direction: column;
 }
 .chatbox{
-    margin-top: 4rem;
+    margin-top: 1rem;
+}
+.left-chat{
+    margin-left: 1rem;
 }
 

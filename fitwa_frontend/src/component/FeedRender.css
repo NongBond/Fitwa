@@ -1,4 +1,4 @@
-.feed-render-com {
+.feed-render-com{
     background-color: white;
     max-width: 600px;
     padding: 1rem;
@@ -6,45 +6,54 @@
     margin: 2rem auto;
 }
 
-.post {
+.post{
     display: grid;
     grid-template-areas:
-        'title title title'
-        'user gym_name date'
-        'gym_img gym_img gym_img'
-        'post_description post_description post_description';
+    'title title title'
+    'gym_name user date'
+    'gym_img gym_img gym_img'
+    'post_description  post_description post_description ';
+    column-gap: 1rem;
+    row-gap: 1rem;
     align-items: center;
+    border-bottom: 2px solid black;
+    margin-bottom: 1rem;
 }
 
-.user {
+.user{
     grid-area: user;
     text-align: left;
 }
 
-.feedtitle {
-    font-size: 2rem;
-    color: rgb(0, 0, 0);
+.feedtitle{
     grid-area: title;
+    max-height: 100px;
     text-align: center;
+    color: white;
+    padding: 5px;
+    background-color: black;
 }
-
-.post_description {
+  
+.post_description{
     grid-area: post_description;
-    font-size: 1.5rem;
+    background-color: lightgray;
+    padding-bottom: 1rem;
+
 }
 
-.gym_img {
+.gym_img{
     grid-area: gym_img;
     box-sizing: border-box;
-    width: 100%;
+    width: 15%;
 }
 
-.gym_name {
+.gym_name{
     grid-area: gym_name;
-    text-align: center;
+    text-align: left;
 }
 
-.date {
+.date{
     grid-area: date;
     text-align: right;
 }
+  

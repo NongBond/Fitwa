@@ -1,50 +1,49 @@
 .post-section-con{
-   display: grid;
-   background-color: white;
-   max-width: 600px;
-   padding: 1rem;
-   border-radius: 1rem;
-   margin: 4rem auto 2rem;
-   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-}
-
-.post-title-gymnam{
-    grid-area: main;
     display: grid;
-    grid-template-areas:
-    'tag tag tag tag'
-    'postDescription postDescription postDescription postDescription'
-    'post-button post-button post-button post-button';
-}
-
-.NAME{
-    grid-area: tag;
-    display: grid;
-    grid-template-areas:
-    'title title gymname gymname';
-    column-gap: 2rem;
-}
-
-.title input{
-    grid-area: title;
-    font-size: 1.25rem;
-    
-}
-
-.gymname option{ 
-    grid-area: gymname;
-    font-size: 1.25rem;
-}
-
-.postDescription textarea{
-    grid-area: postDescription;
-    box-sizing: border-box;
-    width: 100%;
-    font-size: 1.5rem;
-}
-
-.post-button{
-    grid-area: post-button;
-}
-
-
+    background-color: white;
+    max-width: 600px;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 4rem auto 2rem;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+ }
+ 
+ .post-title-gymnam{
+     grid-area: main;
+     display: grid;
+     grid-template-areas:
+     'tag tag tag tag'
+     'postDescription postDescription postDescription postDescription'
+     'post-button post-button post-button post-button';
+ }
+ 
+ .NAME{
+     grid-area: tag;
+     display: grid;
+     grid-template-areas:
+     'title title gymname gymname';
+     column-gap: 2rem;
+ }
+ 
+ .title input{
+     grid-area: title;
+     font-size: 1.25rem;
+ 
+ }
+ 
+ .gymname option{ 
+     grid-area: gymname;
+     font-size: 1.25rem;
+ }
+ 
+ .postDescription textarea{
+     grid-area: postDescription;
+     box-sizing: border-box;
+     width: 100%;
+     font-size: 1.5rem;
+ }
+ 
+ .post-button{
+     grid-area: post-button;
+ }
+ 

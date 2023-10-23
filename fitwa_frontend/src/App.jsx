@@ -8,6 +8,7 @@ import { ChatContextProvider } from './context/ChatContext'
 
 function App() {
   const [count, setCount] = useState(0)
+  //const {user} = useContext(AuthContext)
   return (
     <div className='con-app'>
       <h1 className='h1fitwa'>Welcome to Fitwa</h1>
@@ -16,6 +17,12 @@ function App() {
       <Link to='/SignUp' className='SignUp'>SignIn</Link>
       <Link to='/Login' className='Login'>Login</Link>
       </div>
+    {/* <AuthContextProvider>
+        <ChatContextProvider user={user}> */}
+     
+      {/* </ChatContextProvider>
+    </AuthContextProvider> */}
+      
     </div>
   )
 }
