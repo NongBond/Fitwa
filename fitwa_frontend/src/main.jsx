@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import SignUp from './component/SignUp'
 import Login from './component/Login'
+import Chat from './pages/Chat'
 import Feed from './pages/Feed'
 import './index.css'
 import {
@@ -13,10 +14,28 @@ import {
 } from "react-router-dom";
 import UserProfile from './component/UserProfile'
 import EditProfile from './component/EditProfile'
+import { AuthContext, AuthContextProvider } from './context/AuthContext'
+import { ChatContextProvider } from './context/ChatContext'
+
+
+const Main = () => {
+  // Use the useContext hook to access the user data from AuthContext
+  const { user } = useContext(AuthContext);
+
+  // Your component logic goes here, and you can use the 'user' variable
+  // to access the user data.
+
+  return (
+    <div>kuy</div>
+  );
+};
 
 
 
-const router = createBrowserRouter([
+
+const router =
+createBrowserRouter(
+  [
   {
     path: "/",
     element: <App />
@@ -40,12 +59,24 @@ const router = createBrowserRouter([
   {
     path: "/Main",
     element: <Feed/>
+  },{
+    path: "/Chat",
+    element: <Chat/>
   }
 
 ])
 
   ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
+    <AuthContextProvider>
+      {/* Wrap ChatContextProvider with AuthContext to pass 'user' */}
+      <AuthContext.Consumer>
+        {({ user }) => (
+          <ChatContextProvider user={user}>
+            <RouterProvider router={router} />
+          </ChatContextProvider>
+        )}
+      </AuthContext.Consumer>
+    </AuthContextProvider>
+  </React.StrictMode>
   )

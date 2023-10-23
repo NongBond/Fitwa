@@ -1,21 +1,30 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './App.css'
-import { Link } from 'react-router-dom'
+import Login from './component/Login'
+import { Link, redirect } from 'react-router-dom'
+import { AuthContext, AuthContextProvider } from './context/AuthContext'
+import { ChatContextProvider } from './context/ChatContext'
 
 
 function App() {
   const [count, setCount] = useState(0)
+  //const {user} = useContext(AuthContext)
   return (
     <div className='con-app'>
       <h1 className='h1fitwa'>Welcome to Fitwa</h1>
-      <p className='pfitwa'>fitwa is website for gym searching and friend searching</p>
-        <div className='button-align'>
-        <Link to='/Login' className='Login'>Login</Link>
-        <Link to='/SignUp' className='SignUp'>Sign Up</Link>
-        </div>
+      <p className='pfitwa'>Fitwa is a website for gym search and friend searching</p>
+      <div className='button-align'>
+      <Link to='/SignUp' className='SignUp'>SignIn</Link>
+      <Link to='/Login' className='Login'>Login</Link>
+      </div>
+    {/* <AuthContextProvider>
+        <ChatContextProvider user={user}> */}
+     
+      {/* </ChatContextProvider>
+    </AuthContextProvider> */}
+      
     </div>
   )
 }
-
 
 export default App

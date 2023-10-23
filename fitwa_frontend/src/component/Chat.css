@@ -1,0 +1,32 @@
+.chat-container{
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+.user-chat-container{
+    border: 2px solid black;
+}
+.user-name{
+    padding: 5px;
+    font-size: larger;
+    background-color: antiquewhite;
+}
+.user-text{
+    padding: 5px;
+    padding-left: 30px;
+}
+.potenrial-chat-header{
+    color: aliceblue;
+    display: block;
+    margin: 0px;
+}
+.all-user{
+    display: flex;
+    flex-direction: row;
+}
+.single-user{
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 2px 10px;
+    text-align: center;
+    font-size: smaller;
+}
