@@ -46,11 +46,10 @@ function PostSection() {
 
 
   return (
-      <div className="post-section-con">
-        <h2>Create Gym Post</h2>
-          <div className="post-title-gymname">
-            <div className="NAME">
-              <div className="post-title">
+  <div className="post-section-con">
+    <div className="post-title-gymname">
+      <div className="NAME">
+        <div className="title">
                 <label htmlFor="title">Post Title:</label>
                 <input
                   type="text"
@@ -59,8 +58,8 @@ function PostSection() {
                   value={title}
                   onChange={(e) => settitle(e.target.value)}
                 />
-              </div>
-              <div className="post-gymname">
+        </div>
+        <div className="gymname">
                 <label htmlFor="gymName">Gym Name:</label>
                 <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
                   <h2>{gymName}</h2>
@@ -73,9 +72,9 @@ function PostSection() {
                     </option>
                   ))} */}
                 </select>
-              </div>
-            </div>
-          <div className="post-postDescription">
+        </div>
+      </div>
+      <div className="postDescription">
             <label htmlFor="postDescription">Post Description:</label>
             <textarea
               id="postDescription"
@@ -83,12 +82,12 @@ function PostSection() {
               value={postDescription}
               onChange={(e) => setPostDescription(e.target.value)}
             />
-          </div>
-        </div>
-        <div className="post-button">
-          <button onClick={submitData}>Post</button>
-        </div>
       </div>
+      <div className="post-button">
+        <button onClick={submitData}>Post</button>
+      </div>
+  </div>
+</div>
   );
 }
 

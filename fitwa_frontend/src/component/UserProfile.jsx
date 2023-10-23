@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);
   const auth = getAuth();
   const db = getFirestore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -18,6 +20,7 @@ function UserProfile() {
         }
       } else {
         setUserData(null);
+        navigate("/Login");
       }
     });
 

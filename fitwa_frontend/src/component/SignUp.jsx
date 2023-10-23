@@ -8,7 +8,6 @@ import {
 } from "firebase/auth";
 import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import "./SignUp.css";
-import axois from "axios"
 import axios from "axios";
 
 

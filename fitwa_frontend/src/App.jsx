@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './component/Login'
-import { Link, redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function App() {
@@ -17,5 +16,6 @@ function App() {
     </div>
   )
 }
+
 
 export default App
