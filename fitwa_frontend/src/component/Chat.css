@@ -30,3 +30,36 @@
     text-align: center;
     font-size: smaller;
 }
+.chat-header{
+    color: whitesmoke;
+    text-align: center;
+}
+.message-box{
+    margin: 5px;
+    padding: 15px;
+    background-color: darkgray;
+    border-radius: 20px;
+}
+.message{
+    display: block;
+    border-radius: 20px;
+}
+.message-date{
+    display: block;
+}
+.self-message{
+    background-color: beige;
+    text-align: right;
+}
+.other-message{
+    background-color: darkkhaki;
+}
+.chat-footer{
+    display: flex;
+
+}
+.send-button{
+    min-width: 100px;
+    width: 10%;
+    padding: auto;
+}

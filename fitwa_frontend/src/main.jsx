@@ -17,22 +17,6 @@ import EditProfile from './component/EditProfile'
 import { AuthContext, AuthContextProvider } from './context/AuthContext'
 import { ChatContextProvider } from './context/ChatContext'
 
-
-const Main = () => {
-  // Use the useContext hook to access the user data from AuthContext
-  const { user } = useContext(AuthContext);
-
-  // Your component logic goes here, and you can use the 'user' variable
-  // to access the user data.
-
-  return (
-    <div>kuy</div>
-  );
-};
-
-
-
-
 const router =
 createBrowserRouter(
   [

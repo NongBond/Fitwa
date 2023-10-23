@@ -16,12 +16,14 @@ function useFetchRecipient(chat, user) {
             if (response.error) {
                 return setError(error)
             }
-            console.log(response);
-            setRecipientUser(response.data);
+            else{
+                setRecipientUser(response.data);
+            }
+            
         }
 
         getUser();
-    }, []);
+    }, [recipientId]);
 
   return {recipientUser}
 }
