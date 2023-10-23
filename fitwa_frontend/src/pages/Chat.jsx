@@ -4,21 +4,21 @@ import "../component/Chat.css"
 import UserChat from '../component/UserChat';
 import { AuthContext } from '../context/AuthContext';
 import PotentialChat from '../component/PotentialChat';
-import ChatBox from '../component/ChatBox';
+import ChatBox from '../component/Chatbox';
 import Navbar from '../component/Navbar';
 function Chat() {
     const {user} = useContext(AuthContext);
     const {userChats, isUserChatsLoading, updateCurrentChat} = useContext(ChatContext);
 
-    console.log("UserChats", userChats, "end")
-
   return (
     <div>
         <Navbar/>
+        <div className='left-right-container'>
+        <div className='left-chat'>
         <PotentialChat/>
         <div>{userChats?.length < 1 ? null :
             <div className='chat-container'>
-                <div className='list-of-chat'>
+                
             {isUserChatsLoading && <p>Loading Chat</p>}
             {console.log(userChats?.data)}
             {
@@ -31,10 +31,12 @@ function Chat() {
                 })
             }
                 </div>
-                <div className='chat'>
-                    <ChatBox/>
-                </div>
-            </div>}
+            }
+            </div>
+        </div>
+            <div className='right-chat'>
+                <ChatBox/>
+            </div>
         </div>
     </div>
   )

@@ -28,10 +28,10 @@ function ChatBox() {
 
 
     return  <div className='chatbox'>
-        <div className='chat-header'>
-            <strong>{recipientUser?.name}</strong>
-        </div>
         <div className='message-box'>
+            <div className='chat-header'>
+                <strong>{recipientUser?.name}</strong>
+            </div>
             {messages?.data?.map((message, index) => (
             <div key={index} className={`${message?.senderId === user?._id 
             ? "self-message"
