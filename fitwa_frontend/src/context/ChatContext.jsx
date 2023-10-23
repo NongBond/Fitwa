@@ -39,7 +39,6 @@ export const ChatContextProvider = ({children, user}) => {
     }, [userChats])
 
     useEffect(() => {
-        console.log("ChatAPi", user?._id)
         const getUserChat = async() =>{
             if(user?._id){
                 setIsUserChatsLoading(true);
@@ -50,12 +49,12 @@ export const ChatContextProvider = ({children, user}) => {
                 if (response.error){
                    return setUserChatsError(response);
                 }
-                setIsUserChatsLoading(false)
+
                 setUserChats(response);
             }
         }
         getUserChat();
-    }, [user])
+    }, [user, userChats])
 
     useEffect(() => {
       const getMessages = async() =>{
@@ -70,7 +69,7 @@ export const ChatContextProvider = ({children, user}) => {
               setMessages(response)
       };
       getMessages();
-  }, [currentChat])
+  }, [currentChat, messages])
 
   const sendTextMessage = useCallback(async (textMessage, sender, currentChatId, setTextMessage) => {
     if (!textMessage) {

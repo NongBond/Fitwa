@@ -5,7 +5,7 @@ import './Navbar.css';
 
 function Navbar(){
     return(
-        <div class="navbar">
+        <div className="navbar">
             <div className="left">
             <Link to="/main"><IoIosFitness/></Link>
             <Link to="/EditProfile">Edit Profile</Link>

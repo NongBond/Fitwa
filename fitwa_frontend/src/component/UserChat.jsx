@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import useFetchRecipient from "../hooks/useFetchRecipient"
 import "./Chat.css"
-
+import { ChatContext } from '../context/ChatContext';
 function UserChat({chat, user}) {
     const {recipientUser} = useFetchRecipient(chat, user);
+    const {updateCurrentChat} = useContext(ChatContext)
   return (
     <div className='all-user-chat-container'>
-  <button>
+  <button onClick={() => updateCurrentChat(chat)}>
 
     <div className='user-chat-container'>
         <div className='user-name'>{recipientUser?.name} {recipientUser?.surname}</div>

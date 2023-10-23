@@ -20,7 +20,6 @@ function Chat() {
             <div className='chat-container'>
                 
             {isUserChatsLoading && <p>Loading Chat</p>}
-            {console.log(userChats?.data)}
             {
                 userChats?.data?.map((chat, index) => {
                     return(
