@@ -41,12 +41,14 @@ function FeedRender() {
             <div className="feedtitle">{value.title}</div>
             <div className="gym_name">
               <p onClick={handleClick} >{value.gymName}</p>
+    
             </div>
               <img className="gym_img" src={chooseGymPhoto[value.gymName]} onClick={handleClick}/>
             <div className="post_description">
               <p>{value.postDescription}</p>
             </div>
-            <p className="date">Post at {formatDate(value.createdAt)}</p>
+            <p className="date">{formatDate(value.createdAt)}</p>
+            <p className="userName">Post by {value?.poster}</p>
           </div>
         })}
       </div>

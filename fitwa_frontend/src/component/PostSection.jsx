@@ -1,20 +1,23 @@
 // import React, { useState } from "react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import "./PostSection.css";
+import { AuthContext } from "../context/AuthContext";
 
 function PostSection() {
   const [title, settitle] = useState("");
   const [gymName, setgymName] = useState("");
   const gymOptions = ["Diamond Fitness", "NP gym"];
   const [postDescription, setPostDescription] = useState("");
+  const {user} = useContext(AuthContext)
 
   const submitData = () => {
     axios.post("http://localhost:6969/main/create", {
       title:title, 
       gymName:gymName,
-      postDescription: postDescription}).then((response) => {
+      postDescription: postDescription,
+    poster: user.name}).then((response) => {
         console.log(Option)
     console.log("it's work")
   }).catch(err => {console.log(err)})
@@ -38,8 +41,7 @@ function PostSection() {
         <div className="gymname">
                 <label htmlFor="gymName">Gym Name:</label>
                 <select id="gymName" name = "gymName" value={gymName} onChange={(e) => setgymName(e.target.value)}>
-                  <h2>{gymName}</h2>
-                  <option>--</option>
+\                  <option>--</option>
                   <option>Diamond Fitness</option>
                   <option>NP Fitness</option>
                   <option>Columbo Gym</option>

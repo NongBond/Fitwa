@@ -20,9 +20,9 @@
     margin-bottom: 1rem;
 }
 
-.user{
+.userName{
     grid-area: user;
-    text-align: left;
+    text-align: center;
 }
 
 .feedtitle{

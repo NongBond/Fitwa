@@ -8,6 +8,9 @@ const postSchema = new mongoose.Schema({
     },
     gymName:{
         type: String, require: true
+    },
+    poster:{
+        type: String, require: true
     }
 
 },{
