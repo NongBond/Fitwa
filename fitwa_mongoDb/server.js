@@ -10,6 +10,9 @@ const postRoute = require("./routers/Post");
 const chatRoute = require("./routers/Chat");
 const messageRoute = require("./routers/Message");
 
+const PORT = process.env.PORT || 6969;
+const URI = process.env.ATLAS_URI;
+
 app.use(express.json());
 app.use(cors());
 app.use("/user", userRoute);

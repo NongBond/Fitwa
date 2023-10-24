@@ -15,7 +15,7 @@ function PotentialChat() {
         <div className='all-user'>
             {potentialChat && potentialChat.map((u, index) => {
                 return(
-                <div className='single-user' key={index} onClick={() => {createChat(user._id, u._id)}}>
+                <div className='single-user' key={index} onClick={() => {createChat(user?._id, u._id)}}>
                     {u.name}
                 </div>
                 )

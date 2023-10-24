@@ -103,6 +103,29 @@ export const ChatContextProvider = ({children, user}) => {
       setCurrentChat(chat);
     }, [user])
 
+    const deleteChat = async (chatId) => {
+      try {
+        await axios.delete(`http://localhost:6969/chats/delete/${chatId}`);
+        setUserChats((prevChats) => prevChats.filter((chat) => chat._id !== chatId));
+      } catch (error) {
+        console.error("Error deleting chat:", error);
+      }
+    };
+
+    const handleDeleteUser = async (userId) => {
+      try {
+        await axios.delete(`http://localhost:6969/user/delete/${userId}`);
+        const chatToDelete = userChats.find(
+          (chat) => chat.members.includes(userId)
+        );
+        if (chatToDelete) {
+          deleteChat(chatToDelete._id);
+        }
+      } catch (error) {
+        console.error("Error deleting user:", error);
+      }
+    };
+
     // const createChat = useCallback(async(firstId, secondId) => {
     //     const response = await axios.post(`http://localhost:6969/chats`, JSON.stringify({firstId, secondId}))
     //     if (response.error){
@@ -138,7 +161,8 @@ export const ChatContextProvider = ({children, user}) => {
             messages,
             isMessagesLoading,
             messagesError,
-            sendTextMessage
+            sendTextMessage,
+            handleDeleteUser
             }}>
         {children}
     </ChatContext.Provider>

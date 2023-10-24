@@ -18,16 +18,19 @@
     color: aliceblue;
     display: block;
     margin: 0px;
+    margin-bottom: 1rem;
 }
 .history-text{
     color: white;
     font-size: 1.25rem;
 }
 .all-user{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:0.5rem;
+    /* flex-direction: row;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; */
 }
 .single-user{
     background-color: white;
@@ -39,7 +42,6 @@
     margin-left: 0.5rem;
 }
 .potential-container{
-    margin-left: 1.5rem;
     margin-top: 4rem;
 }
 .chat-header{
@@ -124,8 +126,8 @@
 .left-right-container{
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: 25% 75%;
-    grid-column-gap: 1rem;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
 }
 .chat-container{
     display: flex;

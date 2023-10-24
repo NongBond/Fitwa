@@ -128,6 +128,21 @@ const getUsers = async (req, res) => {
   }
 }
 
+const deletedUser = async(req, res) => {
+  const userId = req.params.userId;
+  try{
+    const deletedUser = await userModel.findByIdAndDelete(userId);
+
+    if (!user) return res.status(404).json({error:"User not Found!!"})
+
+    res.status(200).json(deletedUser);
+
+  }catch(err){
+    console.log("User is not deleted", err);
+    res.status(500).json(err);
+  }
+}
+
 // const functions = require('firebase-functions');
 // const admin = require('firebase-admin');
 // const MongoClient = require('mongodb').MongoClient;
@@ -166,4 +181,4 @@ const getUsers = async (req, res) => {
 //   });
 
 
-module.exports = {transferData, findUserViaFirebase, findUser, getUsers};
+module.exports = {transferData, findUserViaFirebase, findUser, getUsers, deletedUser};
