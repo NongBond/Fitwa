@@ -1,0 +1,60 @@
+.Map{
+    max-width: 600px;
+    margin: 4rem auto 2rem;
+    display: grid;
+    grid-template-areas: 
+    "p1 m1"
+    "p2 m2"
+    "p3 m3";
+    background-color: white;
+    max-width: 600px;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+iframe{
+    margin: 0 auto 2rem;
+    filter: drop-shadow(0px 2px 7px #a3a3a3);
+}
+
+.Diamond{
+    grid-area: m1;
+}
+
+.NP{
+    grid-area: m2;
+}
+
+.Colu{
+    grid-area: m3;
+}
+
+.pD{
+    grid-area: p1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pN{
+    grid-area: p2;
+    display: flex;
+    flex-direction: column;
+}
+
+.pC{
+    grid-area: p3;
+    display: flex;
+    flex-direction: column;
+}
+
+.pD small{
+    margin-bottom:1rem ;
+}
+
+.pN small{
+    margin-bottom:1rem ;
+}
+
+.pC small{
+    margin-bottom:1rem ;
+}

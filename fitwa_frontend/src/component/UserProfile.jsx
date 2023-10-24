@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged , signOut} from "firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import './UserProfile.css'
+import Navbar from "./Navbar";
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);
@@ -41,15 +42,18 @@ function UserProfile() {
   };
 
   return (
-    <div className="Usercon">
-      <h2>{userData.Name} {userData.Surname}</h2>
-      <p>Email: {userData.email}</p>
-      <p>Name: {userData.Name}</p>
-      <p>Surname: {userData.Surname}</p>
-      <p>Age: {userData.age}</p>
-      <p>Sex: {userData.sex}</p>
-      <button onClick={handleLogout}>Logout</button>
-      <button onClick={() => navigate("/EditProfile")}>Edit Profile</button>
+    <div>
+    <Navbar/>
+      <div className="Usercon">
+        <h2>{userData.Name} {userData.Surname}</h2>
+        <p>Email: {userData.email}</p>
+        <p>Name: {userData.Name}</p>
+        <p>Surname: {userData.Surname}</p>
+        <p>Age: {userData.age}</p>
+        <p>Sex: {userData.sex}</p>
+        <button onClick={() => navigate("/EditProfile")}>Edit Profile</button>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   );
 }

@@ -10,6 +10,8 @@ function Navbar(){
             <Link to="/main"><IoIosFitness/></Link>
             <Link to="/EditProfile">Edit Profile</Link>
             <Link to="/Chat">Chat</Link>
+            <Link to="/Map">Gym</Link>
+            <Link to="/About">About</Link>
             </div>
             <div className="right">
             <Link to="/"><IoIosLogOut/></Link>

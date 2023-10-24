@@ -5,6 +5,8 @@ import SignUp from './component/SignUp'
 import Login from './component/Login'
 import Chat from './pages/Chat'
 import Feed from './pages/Feed'
+import About from './component/About'
+import Map from './component/Map'
 import './index.css'
 import {
   createBrowserRouter,
@@ -16,6 +18,7 @@ import UserProfile from './component/UserProfile'
 import EditProfile from './component/EditProfile'
 import { AuthContext, AuthContextProvider } from './context/AuthContext'
 import { ChatContextProvider } from './context/ChatContext'
+
 
 const router =
 createBrowserRouter(
@@ -43,9 +46,18 @@ createBrowserRouter(
   {
     path: "/Main",
     element: <Feed/>
-  },{
+  },
+  {
     path: "/Chat",
     element: <Chat/>
+  },
+  {
+    path: "/About",
+    element: <About/>
+  },
+  {
+    path: "/Map",
+    element: <Map/>
   }
 
 ])

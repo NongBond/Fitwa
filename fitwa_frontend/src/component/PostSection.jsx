@@ -10,30 +10,6 @@ function PostSection() {
   const gymOptions = ["Diamond Fitness", "NP gym"];
   const [postDescription, setPostDescription] = useState("");
 
-  // const handletitleChange = (event) => {
-  //   settitle(event.target.value);
-  // };
-
-  // const handleGymChange = (event) => {
-  //   setgymName(event.target.value);
-  // };
-
-  // const handlepostDescriptionChange = (event) => {
-  //   setPostpostDescription(event.target.value);
-  // };
-
-// Inside PostSection.js
-  // const handlePost = () => {
-  //   const post = {
-  //     title,
-  //     gymName,
-  //     postDescription,
-  //   };
-  //   settitle("");
-  //   setgymName("");
-  //   setPostpostDescription("");
-  // };
-
   const submitData = () => {
     axios.post("http://localhost:6969/main/create", {
       title:title, 
@@ -66,11 +42,7 @@ function PostSection() {
                   <option>--</option>
                   <option>Diamond Fitness</option>
                   <option>NP Fitness</option>
-                  {/* {gymOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))} */}
+                  <option>Columbo Gym</option>
                 </select>
         </div>
       </div>

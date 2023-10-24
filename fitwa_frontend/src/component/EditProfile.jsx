@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import './UserProfile.css'
 
 
 function EditProfile() {
@@ -70,6 +72,8 @@ function EditProfile() {
 
   return (
     <div>
+      <Navbar/>
+      <div className="Usercon">
       <h2>Edit Profile</h2>
       <form onSubmit={handleFormSubmit}>
         <div>
@@ -118,6 +122,7 @@ function EditProfile() {
         </div>
         <button type="submit">Save Changes</button>
       </form>
+    </div>
     </div>
   );
 }
