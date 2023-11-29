@@ -23,7 +23,9 @@ function FeedRender() {
   const [listOfPost, setListOfPost] = useState([]);
   useEffect(() => {
     axios
-      .get("https://fitwa-api.vercel.app/main/post") // get all the post in database
+      .get("https://fitwa-api.vercel.app/main/post", {
+        withCredentials: true,
+      }) // get all the post in database
       .then((response) => {
         setListOfPost(response.data); //
       });

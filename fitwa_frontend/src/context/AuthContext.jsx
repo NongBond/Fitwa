@@ -58,7 +58,10 @@ export const AuthContextProvider = ({ children }) => {
           // Call your backend API with the userId
           try {
             const response = await axios.get(
-              `https://fitwa-api.vercel.app/user/find/${userId}`
+              `https://fitwa-api.vercel.app/user/find/${userId}`,
+              {
+                withCredentials: true,
+              }
             );
             setUser(response.data);
             console.log("user", response.data);

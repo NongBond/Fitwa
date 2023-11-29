@@ -16,7 +16,7 @@ const URI = process.env.ATLAS_URI;
 app.use(
   cors({
     origin: [""],
-    methods: ["POST", "GET"],
+    methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
 );
