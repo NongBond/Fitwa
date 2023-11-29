@@ -6,6 +6,7 @@ body {
     align-items: left;
     justify-content: center;
     font-family: Helvetica;
+    width: 100%;
 }
 
 button{
@@ -83,3 +84,11 @@ button:hover {
     background-color: white;
     border: 1px #000000 solid;
 }
+
+@media screen and (max-width:800px){
+    body{
+        width: fit-content;
+    }
+}
+
+
