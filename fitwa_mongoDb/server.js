@@ -13,6 +13,8 @@ const messageRoute = require("./routers/Message");
 const PORT = process.env.PORT || 6969;
 const URI = process.env.ATLAS_URI;
 
+app.use(express.json());
+app.use(cors());
 app.use(
   cors({
     origin: [""],
@@ -20,9 +22,6 @@ app.use(
     credentials: true,
   })
 );
-
-app.use(express.json());
-app.use(cors());
 app.use("/user", userRoute);
 app.use("/main", postRoute);
 app.use("/chats", chatRoute);
