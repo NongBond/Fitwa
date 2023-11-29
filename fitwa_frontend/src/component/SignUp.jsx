@@ -10,7 +10,6 @@ import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 import "./SignUp.css";
 import axios from "axios";
 
-
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
   const auth = getAuth();
@@ -46,7 +45,7 @@ function SignUp() {
 
       setCurrentUser(true);
 
-      axios.get("http://localhost:6969/user/users").then()
+      axios.get("https://fitwa-api.vercel.app/user/users").then();
       navigate("/Login");
     } catch (error) {
       alert(error.message);
@@ -58,7 +57,7 @@ function SignUp() {
   }
 
   return (
-      <div className="con">
+    <div className="con">
       <div className="signin-form">
         <h1>Sign Up</h1>
         <form onSubmit={handleSubmit}>

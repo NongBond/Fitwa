@@ -1,31 +1,31 @@
-import React, {useState, useEffect} from 'react'
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function useFetchRecipient(chat, user) {
-    const [recipientUser, setRecipientUser] = useState(null);
-    const [error, setError] = useState(null);
+  const [recipientUser, setRecipientUser] = useState(null);
+  const [error, setError] = useState(null);
 
-    const recipientId = chat?.members.find((id) => id !== user?._id)
+  const recipientId = chat?.members.find((id) => id !== user?._id);
 
-    useEffect(() => {
-        const getUser = async() => {
-            if (!recipientId) return null;
+  useEffect(() => {
+    const getUser = async () => {
+      if (!recipientId) return null;
 
-            const response = await axios.get(`http://localhost:6969/user/find/mongo/${recipientId}`);
+      const response = await axios.get(
+        `https://fitwa-api.vercel.app/user/find/mongo/${recipientId}`
+      );
 
-            if (response.error) {
-                return setError(error)
-            }
-            else{
-                setRecipientUser(response.data);
-            }
-            
-        }
+      if (response.error) {
+        return setError(error);
+      } else {
+        setRecipientUser(response.data);
+      }
+    };
 
-        getUser();
-    }, [recipientId]);
+    getUser();
+  }, [recipientId]);
 
-  return {recipientUser}
+  return { recipientUser };
 }
 
-export default useFetchRecipient
+export default useFetchRecipient;
