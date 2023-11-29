@@ -1,7 +1,7 @@
 const userModel = require("../models/User");
-const {ObjectId} = require("mongodb")
+const { ObjectId } = require("mongodb");
 const admin = require("firebase-admin");
-const serviceAccount = require("../../firebase/fitwa-197c5-firebase-adminsdk-p74f5-ed54d829ee.json");
+const serviceAccount = require("../firebase/fitwa-197c5-firebase-adminsdk-p74f5-ed54d829ee.json");
 
 // const mongoose = require('mongoose');
 
@@ -18,7 +18,7 @@ const serviceAccount = require("../../firebase/fitwa-197c5-firebase-adminsdk-p74
 //     name: String,
 //     age: Number,
 //   });
-  
+
 //   const MongooseModel = mongoose.model('MongooseModel', mongooseSchema);
 
 // const PORT = process.env.PORT || 6969;
@@ -39,32 +39,30 @@ const serviceAccount = require("../../firebase/fitwa-197c5-firebase-adminsdk-p74
 //     }
 //   });
 
-
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(serviceAccount),
 });
 
 const firestore = admin.firestore();
 
+async function transferData() {
+  console.log("transfer");
+  const collectionRef = firestore.collection("users");
+  try {
+    const querySnapshot = await collectionRef.get();
 
-async function transferData(){
-    console.log("transfer")
-    const collectionRef = firestore.collection("users");
-    try{
-        const querySnapshot = await collectionRef.get();
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      console.log(data);
+      //data.then()
+      const firestoreId = doc.id; // Get the Firestore document ID
+      //   const mongoId = new ObjectId(firestoreId);
+      //   console.log(mongoId)
 
-
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          console.log(data)
-          //data.then()
-          const firestoreId = doc.id; // Get the Firestore document ID
-        //   const mongoId = new ObjectId(firestoreId);
-        //   console.log(mongoId)
-    
-        userModel.find({ userId: firestoreId })
+      userModel
+        .find({ userId: firestoreId })
         .exec()
-        .then(documents => {
+        .then((documents) => {
           if (documents.length > 0) {
             console.log(`Found documents with the same id`);
           } else {
@@ -77,71 +75,71 @@ async function transferData(){
               userId: firestoreId, // Set the Firestore document ID
               // Add other fields as needed
             });
-      
-            newData.save()
+
+            newData
+              .save()
               .then(() => {
-                console.log('New data saved.');
+                console.log("New data saved.");
               })
-              .catch(err => {
-                console.error('Error saving new data:', err);
+              .catch((err) => {
+                console.error("Error saving new data:", err);
               });
           }
         })
-        .catch(err => {
-          console.error('Error finding documents:', err);
-        });})
-
-    }catch(err){
-        console.error('Error getting documents from Firestore:', err);
-    }
+        .catch((err) => {
+          console.error("Error finding documents:", err);
+        });
+    });
+  } catch (err) {
+    console.error("Error getting documents from Firestore:", err);
+  }
 }
 
 const findUserViaFirebase = async (req, res) => {
-    const userId = req.params.userId;
-    try{
-      const user = await userModel.findOne({userId: userId})
-      res.status(200).json(user);
-    }catch(err){
-      console.log(err);
-      res.status(500).json(err);
-    }
-}
+  const userId = req.params.userId;
+  try {
+    const user = await userModel.findOne({ userId: userId });
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
 
 const findUser = async (req, res) => {
   const userId = req.params.userId;
-  try{
-    const user = await userModel.findById(userId)
+  try {
+    const user = await userModel.findById(userId);
     res.status(200).json(user);
-  }catch(err){
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-}
+};
 
 const getUsers = async (req, res) => {
-  try{
+  try {
     const users = await userModel.find();
     res.status(200).json(users);
-  }catch(err){
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-}
+};
 
-const deletedUser = async(req, res) => {
+const deletedUser = async (req, res) => {
   const userId = req.params.userId;
-  try{
+  try {
     const deletedUser = await userModel.findByIdAndDelete(userId);
 
-    if (!user) return res.status(404).json({error:"User not Found!!"})
+    if (!user) return res.status(404).json({ error: "User not Found!!" });
 
     res.status(200).json(deletedUser);
-
-  }catch(err){
+  } catch (err) {
     console.log("User is not deleted", err);
     res.status(500).json(err);
   }
-}
+};
 
 // const functions = require('firebase-functions');
 // const admin = require('firebase-admin');
@@ -180,5 +178,10 @@ const deletedUser = async(req, res) => {
 //     }
 //   });
 
-
-module.exports = {transferData, findUserViaFirebase, findUser, getUsers, deletedUser};
+module.exports = {
+  transferData,
+  findUserViaFirebase,
+  findUser,
+  getUsers,
+  deletedUser,
+};
