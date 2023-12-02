@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./PostSection.css";
+import "./Postsection.css";
 import { AuthContext } from "../context/AuthContext";
 
 function PostSection() {
