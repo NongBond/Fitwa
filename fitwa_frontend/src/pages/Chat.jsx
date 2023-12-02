@@ -4,7 +4,7 @@ import "../component/Chat.css";
 import UserChat from "../component/UserChat";
 import { AuthContext } from "../context/AuthContext";
 import PotentialChat from "../component/PotentialChat";
-import ChatBox from "../component/Chatbox";
+import ChatBox from "../component/ChatBox";
 import Navbar from "../component/Navbar";
 function Chat() {
   const { user } = useContext(AuthContext);
