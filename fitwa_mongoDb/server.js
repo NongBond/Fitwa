@@ -15,13 +15,13 @@ const URI = process.env.ATLAS_URI;
 
 app.use(express.json());
 app.use(cors());
-app.use(
-  cors({
-    origin: [""],
-    methods: ["POST", "GET", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: [""],
+//     methods: ["POST", "GET", "DELETE"],
+//     credentials: true,
+//   })
+// );
 app.use("/user", userRoute);
 app.use("/main", postRoute);
 app.use("/chats", chatRoute);
