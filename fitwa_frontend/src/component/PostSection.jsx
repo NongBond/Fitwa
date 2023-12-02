@@ -14,18 +14,12 @@ function PostSection() {
 
   const submitData = () => {
     axios
-      .post(
-        "https://fitwa-api.vercel.app/main/create",
-        {
-          title: title,
-          gymName: gymName,
-          postDescription: postDescription,
-          poster: user.name,
-        },
-        {
-          withCredentials: true,
-        }
-      )
+      .post("https://fitwa-api.vercel.app/main/create", {
+        title: title,
+        gymName: gymName,
+        postDescription: postDescription,
+        poster: user.name,
+      })
       .then((response) => {
         console.log(Option);
         console.log("it's work");

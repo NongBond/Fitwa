@@ -12,10 +12,7 @@ function useFetchRecipient(chat, user) {
       if (!recipientId) return null;
 
       const response = await axios.get(
-        `https://fitwa-api.vercel.app/user/find/mongo/${recipientId}`,
-        {
-          withCredentials: true,
-        }
+        `https://fitwa-api.vercel.app/user/find/mongo/${recipientId}`
       );
 
       if (response.error) {

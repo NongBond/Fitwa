@@ -17,9 +17,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
   useEffect(() => {
     const getUsers = async () => {
-      const response = await axios.get("https://fitwa-api.vercel.app/user", {
-        withCredentials: true,
-      });
+      const response = await axios.get("https://fitwa-api.vercel.app/user");
       if (response.error) {
         return console.log("Error fetch all user", error);
       }
@@ -46,10 +44,7 @@ export const ChatContextProvider = ({ children, user }) => {
         setUserChatsError(null);
 
         const response = await axios.get(
-          `https://fitwa-api.vercel.app/chats/${user?._id}`,
-          {
-            withCredentials: true,
-          }
+          `https://fitwa-api.vercel.app/chats/${user?._id}`
         );
         setIsUserChatsLoading(false);
         if (response.error) {
@@ -66,10 +61,7 @@ export const ChatContextProvider = ({ children, user }) => {
       setMessagesError(null);
 
       const response = await axios.get(
-        `https://fitwa-api.vercel.app/messages/${currentChat?._id}`,
-        {
-          withCredentials: true,
-        }
+        `https://fitwa-api.vercel.app/messages/${currentChat?._id}`
       );
       if (response.error) {
         return setMessagesError(response);
@@ -94,9 +86,6 @@ export const ChatContextProvider = ({ children, user }) => {
             chatId: currentChatId,
             senderId: sender._id,
             text: textMessage,
-          },
-          {
-            withCredentials: true,
           }
         );
 
@@ -128,12 +117,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
   const deleteChat = async (chatId) => {
     try {
-      await axios.delete(
-        `https://fitwa-api.vercel.app/chats/delete/${chatId}`,
-        {
-          withCredentials: true,
-        }
-      );
+      await axios.delete(`https://fitwa-api.vercel.app/chats/delete/${chatId}`);
       setUserChats((prevChats) =>
         prevChats.filter((chat) => chat._id !== chatId)
       );
@@ -144,9 +128,7 @@ export const ChatContextProvider = ({ children, user }) => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`https://fitwa-api.vercel.app/user/delete/${userId}`, {
-        withCredentials: true,
-      });
+      await axios.delete(`https://fitwa-api.vercel.app/user/delete/${userId}`);
       const chatToDelete = userChats.find((chat) =>
         chat.members.includes(userId)
       );
@@ -167,16 +149,10 @@ export const ChatContextProvider = ({ children, user }) => {
   // }, [])
   const createChat = useCallback(async (firstId, secondId) => {
     try {
-      const response = await axios.post(
-        `https://fitwa-api.vercel.app/chats`,
-        {
-          firstId,
-          secondId,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post(`https://fitwa-api.vercel.app/chats`, {
+        firstId,
+        secondId,
+      });
       if (response.error) {
         return console.log("Error fetch create chat", response.error);
       } else {

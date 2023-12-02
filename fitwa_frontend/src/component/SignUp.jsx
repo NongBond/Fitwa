@@ -45,11 +45,7 @@ function SignUp() {
 
       setCurrentUser(true);
 
-      axios
-        .get("https://fitwa-api.vercel.app/user/users", {
-          withCredentials: true,
-        })
-        .then();
+      axios.get("https://fitwa-api.vercel.app/user/users").then();
       navigate("/Login");
     } catch (error) {
       alert(error.message);
