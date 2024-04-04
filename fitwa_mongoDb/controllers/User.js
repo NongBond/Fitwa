@@ -3,44 +3,12 @@ const { ObjectId } = require("mongodb");
 const admin = require("firebase-admin");
 const serviceAccount = require("../firebase/fitwa-197c5-firebase-adminsdk-p74f5-ed54d829ee.json");
 
-// const mongoose = require('mongoose');
-
-// const mongoURI = 'mongodb://localhost:27017/your_mongodb_database';
-// mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-// db.once('open', () => {
-//   console.log('Connected to MongoDB');
-// });
-
-// const mongooseSchema = new mongoose.Schema({
-//     name: String,
-//     age: Number,
-//   });
-
-//   const MongooseModel = mongoose.model('MongooseModel', mongooseSchema);
-
-// const PORT = process.env.PORT || 6969;
-// const URI = process.env.ATLAS_URI;
-
-// exports.syncFirestoreToMongo = functions.firestore
-//   .document('your_firestore_collection/{docId}')
-//   .onWrite(async (change, context) => {
-//     const docData = change.after.exists ? change.after.data() : null;
-//     const docId = context.params.docId;
-
-//     if (!docData) {
-//       // Document deleted in Firestore, delete it in MongoDB
-//       await MongooseModel.findByIdAndRemove(docId);
-//     } else {
-//       // Update or insert the document in MongoDB
-//       await MongooseModel.findByIdAndUpdate(docId, docData, { upsert: true });
-//     }
-//   });
-
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    project_id: process.env.FIREBASE_PROJECT_ID,
+    private_key: process.env.FIREBASE_PRIVATE_KEY,
+    client_email: process.env.FIREBASE_CLIENT_EMAIL,
+  }),
 });
 
 const firestore = admin.firestore();

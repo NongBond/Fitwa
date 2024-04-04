@@ -1,19 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import firebaseConfig from "../firebase.config";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase.config"; // Change this line
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { collection, doc, setDoc } from "firebase/firestore";
 import "./SignUp.css";
 import axios from "axios";
 
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
-  const auth = getAuth();
-  const db = getFirestore();
   const navigate = useNavigate();
   const [age, setAge] = useState("");
   const [sex, setSex] = useState("");
