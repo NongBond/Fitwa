@@ -1,7 +1,6 @@
 const userModel = require("../models/User");
 const { ObjectId } = require("mongodb");
 const admin = require("firebase-admin");
-const serviceAccount = require("../firebase/fitwa-197c5-firebase-adminsdk-p74f5-ed54d829ee.json");
 
 admin.initializeApp({
   credential: admin.credential.cert({
